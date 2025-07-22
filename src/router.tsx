@@ -1,9 +1,11 @@
 import { createBrowserRouter } from 'react-router';
+import RootPage from './layout/page/RootPage';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    lazy: lazyComponent(import('./home/home-route')),
+    element: <RootPage />
+    // lazy: lazyComponent(import('./home/home-route')),
   },
 ]);
 
