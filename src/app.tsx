@@ -11,7 +11,7 @@ export default function App() {
   return (
     <QueryClientProvider client={client}>
       <ReactQueryDevtools />
-      <MantineProvider theme={theme}>
+      <MantineProvider defaultColorScheme='dark' theme={theme}>
         <RouterProvider router={router} />
       </MantineProvider>
     </QueryClientProvider>

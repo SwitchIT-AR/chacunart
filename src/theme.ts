@@ -1,3 +1,21 @@
-import { createTheme } from '@mantine/core';
+import { createTheme, MantineColorsTuple } from '@mantine/core';
 
-export const theme = createTheme({});
+const titles: MantineColorsTuple = [
+  '#fbf5ec',
+  '#eee9e0',
+  '#dbd0c1',
+  '#c7b69f',
+  '#b6a082',
+  '#ab936e',
+  '#a78b64',
+  '#927852',
+  '#886f4a',
+  '#725b38'
+];
+
+
+export const theme = createTheme({
+  colors: {
+    titles: titles
+  }
+});
