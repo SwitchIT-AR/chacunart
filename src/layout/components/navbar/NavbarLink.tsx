@@ -14,7 +14,7 @@ export default function NavbarLink({ data }: NavbarLinkProps) {
       <NavLink component={Link} to={data.path} label={data.label}>
         {
           data.nestedLinks.map((nestedLink) => (
-            <NavLink key={nestedLink.path} component={Link} to={nestedLink.path} label={nestedLink.label} />
+            <NavLink key={nestedLink.path} component={Link} to={`${data.path}/${nestedLink.path}`} label={nestedLink.label} />
           ))
         }
       </NavLink>

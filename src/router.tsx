@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import RootPage from './layout/page/RootPage';
+import NothingFoundPage from './errors/NotFoundPage';
+import ErrorScreen from './errors/ErrorScreen';
 
 export const router = createBrowserRouter([
   {
@@ -7,15 +9,20 @@ export const router = createBrowserRouter([
     element: <RootPage />
     // lazy: lazyComponent(import('./home/home-route')),
   },
+  {
+    path: '*',
+    element: <NothingFoundPage />,
+    errorElement: <ErrorScreen>paso algo</ErrorScreen>,
+  },
 ]);
 
-function lazyComponent<T>(module: Promise<ModuleWithDefault<T>>) {
-  return async () => {
-    const { default: Component } = await module;
-    return { Component };
-  };
-}
+// function lazyComponent<T>(module: Promise<ModuleWithDefault<T>>) {
+//   return async () => {
+//     const { default: Component } = await module;
+//     return { Component };
+//   };
+// }
 
-interface ModuleWithDefault<T> {
-  default: T;
-}
+// interface ModuleWithDefault<T> {
+//   default: T;
+// }
