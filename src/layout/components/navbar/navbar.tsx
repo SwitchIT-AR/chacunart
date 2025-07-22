@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <div style={{ position: 'relative', paddingBottom: '10rem', height: '95%' }}>
       <Box
-        h="10vh"
+        h="15vh"
         style={{
           display: 'flex',
           justifyContent: 'center',
@@ -19,7 +19,7 @@ export default function Navbar() {
           backgroundColor: 'var(--mantine-color-gray-5)',
         }}
       >
-        <Image src="https://placehold.co/230x80" w={230} h={80} />
+        <Image src="https://placehold.co/300x120" w={300} h={120} />
       </Box>
 
       <Box py={'md'}>

@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <AppShell navbar={{ breakpoint: 'sm', width: '250px' }}>
+    <AppShell navbar={{ breakpoint: 'sm', width: '320px' }}>
       <AppShell.Navbar>
         <Navbar />
       </AppShell.Navbar>

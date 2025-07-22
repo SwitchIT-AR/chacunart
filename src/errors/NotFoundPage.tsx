@@ -23,7 +23,7 @@ export function NothingFoundPage() {
             soporte tecnico..
           </Text>
           <Group justify="center">
-            <Button onClick={() => navigate('/admin/dashboard')} size="md">
+            <Button onClick={() => navigate('/')} size="md">
               Volver al Inicio
             </Button>
           </Group>
