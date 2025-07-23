@@ -1,0 +1,1 @@
+export const SHEETS = (sheet: string) => `/api/sheets?sheet=${sheet}`;
