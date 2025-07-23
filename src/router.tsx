@@ -2,12 +2,15 @@ import { createBrowserRouter } from 'react-router';
 import RootPage from './layout/page/RootPage';
 import NothingFoundPage from './errors/NotFoundPage';
 import ErrorScreen from './errors/ErrorScreen';
+import HomePage from './home/home-route';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootPage />
-    // lazy: lazyComponent(import('./home/home-route')),
+    element: <RootPage />,
+    children: [
+      { path: '/', element: <HomePage /> }
+    ]
   },
   {
     path: '*',

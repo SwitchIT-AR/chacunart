@@ -1,16 +1,42 @@
-import { Button, Container, Text, Title } from '@mantine/core';
-import { useState } from 'react';
+import { Carousel, CarouselSlide } from '@mantine/carousel';
+import { Container, Group } from '@mantine/core';
+import {
+  IconChevronDown,
+  IconChevronUp,
+} from '@tabler/icons-react';
 
-export default function HomeRoute() {
-  const [counter, setCounter] = useState(0);
-  const updateCounter = () => setCounter((prev) => prev + 1);
+export default function HomePage() {
   return (
-    <Container ta="center" mt="6rem">
-      <Title my="xs">El Gordo React™</Title>
-      <Text my="md" c="dimmed">
-        La mejor template del universo.
-      </Text>
-      <Button onClick={updateCounter}>Clicks: {counter}</Button>
+    <Container
+      component={'section'}
+      style={{ height: '100vh', display: 'flex', padding: 0 }}
+      fluid
+    >
+      <Carousel
+        withIndicators
+        orientation="vertical"
+        height={'100%'}
+        flex={1}
+        nextControlIcon={<IconChevronDown />}
+        previousControlIcon={<IconChevronUp />}
+        styles={{ control: { display: 'none' } }}
+      >
+        <CarouselSlide>
+          <Group bg={'blue'} justify="center" align="center" h={'100%'}>
+            1
+          </Group>
+        </CarouselSlide>
+        <CarouselSlide>
+          <Group bg={'blue'} justify="center" align="center" h={'100%'}>
+            2
+          </Group>
+        </CarouselSlide>
+        <CarouselSlide>
+          <Group bg={'blue'} justify="center" align="center" h={'100%'}>
+            3
+          </Group>
+        </CarouselSlide>
+      </Carousel>
     </Container>
   );
 }
