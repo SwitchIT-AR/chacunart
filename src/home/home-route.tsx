@@ -1,11 +1,11 @@
 import { Carousel, CarouselSlide } from '@mantine/carousel';
 import { Alert, Container, Group, Loader } from '@mantine/core';
-import { useGetSheetData } from '../api/sheets';
+import { useArtSheetData } from '../api/sheets';
 import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
 
 export default function HomePage() {
-  const homeImages = useGetSheetData('hoja1');
+  const homeImages = useArtSheetData('CollectionTest');
   const autoplay = useRef(Autoplay({ delay: 3000 }));
 
   return (

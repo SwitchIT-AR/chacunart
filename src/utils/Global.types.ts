@@ -4,4 +4,10 @@ export interface ArtElement {
   link: string;
 };
 
-export type Sheet = ArtElement[];
+export interface Collection {
+  name: string;
+  key: string;
+}
+
+export type ArtSheet = ArtElement[];
+export type CollectionSheet = Collection[];
