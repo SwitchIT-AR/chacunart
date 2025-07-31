@@ -27,7 +27,6 @@ export const useArtSheetData = (sheetName: string) => {
   });
 };
 
-
 const getCollectionData = async (sheet: string): Promise<CollectionSheet> => {
   const request = new Request(SHEETS(sheet), {
     method: 'GET',

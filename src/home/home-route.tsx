@@ -5,7 +5,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
 
 export default function HomePage() {
-  const homeImages = useArtSheetData('CollectionTest');
+  const homeImages = useArtSheetData('Menu');
   const autoplay = useRef(Autoplay({ delay: 3000 }));
 
   return (

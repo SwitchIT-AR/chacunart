@@ -1,15 +1,45 @@
-import { Box, Group, Image } from '@mantine/core';
-import { navbarLinksData } from './links';
-import NavbarLink from './NavbarLink';
+import {
+  Box,
+  Group,
+  Image,
+} from '@mantine/core';
 import {
   IconBrandAdobeIllustrator,
   IconBrandFacebookFilled,
   IconBrandInstagramFilled,
 } from '@tabler/icons-react';
+import { useArtSheetData } from '../../../api/sheets';
+import NewNavLink from './NewNavLink';
+
+export interface ParsedMenuItem {
+  label: string;
+  content: {
+    orden: string;
+    menu: string;
+    submenu: string;
+    pictureBlack: string;
+    pictureColour: string;
+  }[];
+}
 
 export default function Navbar() {
+  const menu = useArtSheetData('Menu');
+
+  const links: ParsedMenuItem[] = menu.data
+    ? menu.data.map((item) => {
+        const label = Object.keys(item)[0]; // ejemplo: "OBRAS AÑO"
+        const content = item[label]; // el array de objetos
+        return {
+          label,
+          content,
+        };
+      })
+    : [];
+
+  console.log(links);
+
   return (
-    <div style={{ position: 'relative', paddingBottom: '10rem', height: '95%' }}>
+    <div style={{ position: 'relative', paddingBottom: '10rem', minHeight: '98vh' }}>
       <Box
         h="15vh"
         style={{
@@ -23,9 +53,10 @@ export default function Navbar() {
       </Box>
 
       <Box py={'md'}>
-        {navbarLinksData.map((link) => (
-          <NavbarLink key={link.label} data={link} />
-        ))}
+        {links.map((link) => (
+          <NewNavLink key={link.label} data={link} />
+        )
+      )}
       </Box>
 
       <Group
