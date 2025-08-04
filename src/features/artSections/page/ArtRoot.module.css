@@ -1,0 +1,32 @@
+.submenuContainer {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
+
+.submenuItem {
+  flex: 1;
+  transition: flex 0.5s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.submenuItem:hover {
+  flex: 6.5;
+}
+
+.image {
+  height: 100%;
+  width: auto;
+  object-fit: fill;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.submenuItem:hover .image {
+  filter: grayscale(0%);
+}

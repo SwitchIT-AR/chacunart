@@ -2,6 +2,7 @@ export interface NavbarLinkData {
   label: string;
   path: string;
   // icon: Icon;
+  imageKey: string;
   isNested: boolean;
   nestedLinks: { label: string; path: string }[];
 }
@@ -10,12 +11,14 @@ export const navbarLinksData: NavbarLinkData[] = [
   {
     label: 'Inicio',
     path: '/',
+    imageKey: 'Menu',
     isNested: false,
     nestedLinks: [],
   },
   {
     label: 'OBRAS AÑO',
     path: '/obrasAño',
+    imageKey: 'Obras',
     isNested: true,
     nestedLinks: [
       { label: '2025', path: '2025' },
@@ -31,11 +34,12 @@ export const navbarLinksData: NavbarLinkData[] = [
   {
     label: 'OBRAS SERIE',
     path: '/obrasSerie',
+    imageKey: 'Obras',
     isNested: true,
     nestedLinks: [
       { label: 'Re-Cuadros', path: 'recuadros' },
       { label: 'Juntos', path: 'juntos' },
-      { label: 'Familia', path: 'familia' },
+      { label: 'Familias', path: 'familias' },
       { label: 'Asombro', path: 'asombro' },
       { label: 'Amigos', path: 'amigos' },
       { label: 'Alegria', path: 'alegria' },
@@ -44,6 +48,7 @@ export const navbarLinksData: NavbarLinkData[] = [
   {
     label: 'ACERCA DE',
     path: '/about',
+    imageKey: 'About',
     isNested: false,
     nestedLinks: [
       { label: 'Portfolio', path: 'recuadros' },
@@ -54,23 +59,26 @@ export const navbarLinksData: NavbarLinkData[] = [
   {
     label: 'EXHIBICIONES',
     path: '/exibitions',
+    imageKey: 'Exhibiciones',
     isNested: true,
     nestedLinks: [
       { label: '2025', path: '2025' },
       { label: '2024', path: '2024' },
       { label: '2023', path: '2023' },
       { label: '2022', path: '2022' },
-      { label: '2021/20/19', path: '2021' },
+      { label: '2021-20-19', path: '2021' },
     ],
   },
   {
     label: 'PREMIOS',
     path: '/prices',
+    imageKey: 'Premios',
     isNested: false,
     nestedLinks: [],
   },
   {
     label: 'ARTE AFRICANO',
+    imageKey: 'Africano',
     path: '/african',
     isNested: true,
     nestedLinks: [
@@ -81,6 +89,7 @@ export const navbarLinksData: NavbarLinkData[] = [
   {
     label: 'CONTACTO',
     path: '/contact',
+    imageKey: 'Contacto',
     isNested: false,
     nestedLinks: [],
   },
