@@ -21,7 +21,7 @@ export default function NavbarLink({ data }: NavbarLinkProps) {
           <ul style={{ padding: 0 }}>
             {data.nestedLinks.map((nestedLink) => (
               <li key={nestedLink.path}>
-                <Text component={Link} to={nestedLink.path} className={classes.nestedLabel}>
+                <Text component={Link} to={`${data.path}/${nestedLink.path}`} className={classes.nestedLabel}>
                   {nestedLink.label}
                 </Text>
               </li>

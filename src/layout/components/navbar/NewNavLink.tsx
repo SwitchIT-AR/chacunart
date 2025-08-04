@@ -35,7 +35,8 @@ export default function NewNavLink({ data }: NewNavLinkProps) {
                 key={content.submenu}
                 style={{ textAlign: 'center' }}
                 label={content.submenu}
-                href={`${href}/${content.submenu.toLowerCase().replace(/\s/g, '')}`}
+                href={`hola`}
+                // href={`${href}/${content.submenu.toLowerCase().replace(/\s/g, '')}`}
                 pl="lg"
               />
             ))}
