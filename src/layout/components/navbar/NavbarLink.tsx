@@ -1,27 +1,40 @@
-import { NavLink } from "@mantine/core";
-import { NavbarLinkData } from "./links";
-import { Link } from "react-router";
+import { Collapse, Text } from '@mantine/core';
+import { NavbarLinkData } from './links';
+import { Link } from 'react-router';
+import { useDisclosure } from '@mantine/hooks';
+import classes from './Navlink.module.css';
 
 interface NavbarLinkProps {
   data: NavbarLinkData;
 }
 
 export default function NavbarLink({ data }: NavbarLinkProps) {
-  const icon = <data.icon size={'1rem'} stroke={'0.12rem'} />
-  
+  const [opened, { toggle }] = useDisclosure(false);
+
   if (data.isNested) {
     return (
-      <NavLink component={Link} to={data.path} label={data.label}>
-        {
-          data.nestedLinks.map((nestedLink) => (
-            <NavLink key={nestedLink.path} component={Link} to={`${data.path}/${nestedLink.path}`} label={nestedLink.label} />
-          ))
-        }
-      </NavLink>
-    )
+      <>
+        <Text component={Link} to={data.path} onClick={() => toggle()} className={classes.label}>
+          {data.label}
+        </Text>
+        <Collapse in={opened}>
+          <ul style={{ padding: 0 }}>
+            {data.nestedLinks.map((nestedLink) => (
+              <li key={nestedLink.path}>
+                <Text component={Link} to={nestedLink.path} className={classes.nestedLabel}>
+                  {nestedLink.label}
+                </Text>
+              </li>
+            ))}
+          </ul>
+        </Collapse>
+      </>
+    );
   }
 
   return (
-    <NavLink component={Link} to={data.path} label={data.label}  rightSection={icon} />
-  )
+    <Text component={Link} to={data.path} onClick={() => toggle()} className={classes.label}>
+      {data.label}
+    </Text>
+  );
 }

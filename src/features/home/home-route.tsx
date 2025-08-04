@@ -1,6 +1,6 @@
 import { Carousel, CarouselSlide } from '@mantine/carousel';
 import { Alert, Container, Group, Loader } from '@mantine/core';
-import { useArtSheetData } from '../api/sheets';
+import { useArtSheetData } from '../../api/sheets';
 import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
 

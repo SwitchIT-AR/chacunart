@@ -1,9 +1,7 @@
-import { Icon, IconArtboard, IconBook, IconDeviceTv, IconHome } from '@tabler/icons-react';
-
 export interface NavbarLinkData {
   label: string;
   path: string;
-  icon: Icon;
+  // icon: Icon;
   isNested: boolean;
   nestedLinks: { label: string; path: string }[];
 }
@@ -12,42 +10,77 @@ export const navbarLinksData: NavbarLinkData[] = [
   {
     label: 'Inicio',
     path: '/',
-    icon: IconHome,
     isNested: false,
     nestedLinks: [],
   },
   {
-    label: 'Trabajos',
-    path: '/works',
-    icon: IconArtboard,
+    label: 'OBRAS AÑO',
+    path: '/obrasAño',
     isNested: true,
-    nestedLinks: [{ label: 'Esculturas Serie I', path: 'sculpsI' },
-      { label: 'Esculturas Serie II', path: 'sculpsII' },
-      { label: 'Esculturas Serie III', path: 'sculpsIII' },
-      { label: 'Esculturas Serie IV', path: 'sculpsIV' },
-      { label: 'Muestras y Exposiciones', path: 'expos' },
-      { label: 'Mascaras Africanas', path: 'africanMasks' },
-      { label: 'Cetros Africanos', path: 'africanScepter' },
+    nestedLinks: [
+      { label: '2025', path: '2025' },
+      { label: '2024', path: '2024' },
+      { label: '2023', path: '2023' },
+      { label: '2022', path: '2022' },
+      { label: '2021', path: '2021' },
+      { label: '2020', path: '2020' },
+      { label: '2019', path: '2019' },
+      { label: '2018', path: '2018' },
     ],
   },
   {
-    label: 'Biografia',
-    path: '/biography',
-    icon: IconBook,
+    label: 'OBRAS SERIE',
+    path: '/obrasSerie',
+    isNested: true,
+    nestedLinks: [
+      { label: 'Re-Cuadros', path: 'recuadros' },
+      { label: 'Juntos', path: 'juntos' },
+      { label: 'Familia', path: 'familia' },
+      { label: 'Asombro', path: 'asombro' },
+      { label: 'Amigos', path: 'amigos' },
+      { label: 'Alegria', path: 'alegria' },
+    ],
+  },
+  {
+    label: 'ACERCA DE',
+    path: '/about',
+    isNested: false,
+    nestedLinks: [
+      { label: 'Portfolio', path: 'recuadros' },
+      { label: 'Storytelling', path: 'juntos' },
+      { label: 'Memoria Conceptual', path: 'familia' },
+    ],
+  },
+  {
+    label: 'EXHIBICIONES',
+    path: '/exibitions',
+    isNested: true,
+    nestedLinks: [
+      { label: '2025', path: '2025' },
+      { label: '2024', path: '2024' },
+      { label: '2023', path: '2023' },
+      { label: '2022', path: '2022' },
+      { label: '2021/20/19', path: '2021' },
+    ],
+  },
+  {
+    label: 'PREMIOS',
+    path: '/prices',
     isNested: false,
     nestedLinks: [],
   },
   {
-    label: 'Presentación',
-    path: '/presentation',
-    icon: IconDeviceTv,
-    isNested: false,
-    nestedLinks: [],
+    label: 'ARTE AFRICANO',
+    path: '/african',
+    isNested: true,
+    nestedLinks: [
+      { label: 'Báculos', path: 'baculos' },
+      { label: 'Máscaras', path: 'masks' },
+    ],
   },
   {
-    label: 'Storytelling',
-    path: '/storytelling',
-    icon: IconBook,
+    label: 'CONTACTO',
+    path: '/contact',
     isNested: false,
     nestedLinks: [],
   },

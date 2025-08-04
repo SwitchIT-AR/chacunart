@@ -17,5 +17,9 @@ const titles: MantineColorsTuple = [
 export const theme = createTheme({
   colors: {
     titles: titles
+  },
+  fontFamily: 'Balthazar, sans-serif',
+  headings: {
+    fontFamily: 'Balthazar, sans-serif',
   }
 });

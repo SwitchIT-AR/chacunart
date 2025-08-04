@@ -1,6 +1,6 @@
 import { Box, Collapse, NavLink, Stack } from '@mantine/core';
 import { useNavigate } from 'react-router';
-import { ParsedMenuItem } from './navbar';
+import { ParsedMenuItem } from './NavbarNavigation';
 import { useDisclosure } from '@mantine/hooks';
 
 interface NewNavLinkProps {
