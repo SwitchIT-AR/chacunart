@@ -1,11 +1,9 @@
 import { Carousel, CarouselSlide } from '@mantine/carousel';
-import { Alert, Container, Group, Loader } from '@mantine/core';
-import { useArtSheetData } from '../../api/sheets';
+import { Container, Group, Text } from '@mantine/core';
 import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
 
 export default function HomePage() {
-  const homeImages = useArtSheetData('Menu');
   const autoplay = useRef(Autoplay({ delay: 3000 }));
 
   return (
@@ -14,33 +12,6 @@ export default function HomePage() {
       style={{ height: '100vh', display: 'flex', padding: 0 }}
       fluid
     >
-      {homeImages.isLoading && (
-        <div
-          style={{
-            display: 'flex',
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Loader />
-        </div>
-      )}
-      {
-        homeImages.isError && (
-          <div
-          style={{
-            display: 'flex',
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Alert title='Oops... ha ocurrido un error' color='red'>{homeImages.error.message}</Alert>
-        </div>
-        )
-      }
-      {homeImages.isSuccess && (
         <Carousel
           withIndicators
           orientation="vertical"
@@ -50,27 +21,23 @@ export default function HomePage() {
           emblaOptions={{ duration: 75 }}
           styles={{ control: { display: 'none' } }}
         >
-          {
-            homeImages.data.map((element) => (
-            <CarouselSlide key={element.nombre}>
-              <Group bg={'blue'} justify="center" align="center" h={'100%'}>
-                {element.nombre}
-              </Group>
-            </CarouselSlide>
-            ))
-          }
           <CarouselSlide>
-            <Group bg={'blue'} justify="center" align="center" h={'100%'}>
-              2
+            <Group bg={'var(--mantine-color-titles-9)'} justify="center" align="center" h={'100%'}>
+              <Text size={'22px'} c={'white'}>Image 1</Text>
             </Group>
           </CarouselSlide>
           <CarouselSlide>
-            <Group bg={'blue'} justify="center" align="center" h={'100%'}>
-              3
+            <Group bg={'var(--mantine-color-titles-9)'} justify="center" align="center" h={'100%'}>
+              <Text size={'22px'} c={'white'}>Image 2</Text>
+            </Group>
+          </CarouselSlide>
+          <CarouselSlide>
+            <Group bg={'var(--mantine-color-titles-9)'} justify="center" align="center" h={'100%'}>
+              <Text size={'22px'} c={'white'}>Image 3</Text>
             </Group>
           </CarouselSlide>
         </Carousel>
-      )}
+      {/* )} */}
     </Container>
   );
 }
