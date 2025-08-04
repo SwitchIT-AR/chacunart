@@ -1,4 +1,5 @@
 import { Box, Image } from "@mantine/core";
+import { Link } from "react-router";
 
 export default function NavbarHeader() {
   return (
@@ -10,6 +11,8 @@ export default function NavbarHeader() {
         alignItems: 'center',
         backgroundColor: 'black',
       }}
+      component={Link}
+      to={'/'}
     >
       <Image src="/assets/ChristianAcuna-logo.jpg" w={250} />
     </Box>
