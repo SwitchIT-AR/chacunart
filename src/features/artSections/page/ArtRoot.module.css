@@ -1,3 +1,28 @@
+.infoButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--mantine-spacing-md);
+}
+
+.infoButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  min-height: 150px;
+  padding: 0 var(--mantine-spacing-md);
+  border: 0.1px solid var(--mantine-color-gray-5);
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+}
+
+.infoButtons:hover {
+  background-color: var(--mantine-color-gray-3);
+  color: black;
+  cursor: pointer;
+}
+
 .submenuContainer {
   display: flex;
   height: 100vh;

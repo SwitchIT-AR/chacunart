@@ -22,7 +22,7 @@ export default function Layout({ children }: LayoutProps) {
           <NavbarFooter />
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main>{children}</AppShell.Main>
+      <AppShell.Main bg={'black'}>{children}</AppShell.Main>
     </AppShell>
   );
 }

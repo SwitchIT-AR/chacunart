@@ -1,10 +1,11 @@
 export interface NavbarLinkData {
   label: string;
   path: string;
-  // icon: Icon;
   imageKey: string;
   isNested: boolean;
+  isInfoSection: boolean;
   nestedLinks: { label: string; path: string }[];
+  files: { label: string; path: string }[];
 }
 
 export const navbarLinksData: NavbarLinkData[] = [
@@ -13,13 +14,16 @@ export const navbarLinksData: NavbarLinkData[] = [
     path: '/',
     imageKey: 'Menu',
     isNested: false,
+    isInfoSection: false,
     nestedLinks: [],
+    files: [],
   },
   {
     label: 'OBRAS AÑO',
     path: '/obrasAño',
     imageKey: 'Obras',
     isNested: true,
+    isInfoSection: false,
     nestedLinks: [
       { label: '2025', path: '2025' },
       { label: '2024', path: '2024' },
@@ -30,12 +34,14 @@ export const navbarLinksData: NavbarLinkData[] = [
       { label: '2019', path: '2019' },
       { label: '2018', path: '2018' },
     ],
+    files: [],
   },
   {
     label: 'OBRAS SERIE',
     path: '/obrasSerie',
     imageKey: 'Obras',
     isNested: true,
+    isInfoSection: false,
     nestedLinks: [
       { label: 'Re-Cuadros', path: 'recuadros' },
       { label: 'Juntos', path: 'juntos' },
@@ -44,16 +50,20 @@ export const navbarLinksData: NavbarLinkData[] = [
       { label: 'Amigos', path: 'amigos' },
       { label: 'Alegria', path: 'alegria' },
     ],
+    files: [],
   },
   {
     label: 'ACERCA DE',
     path: '/about',
     imageKey: 'About',
     isNested: false,
+    isInfoSection: true,
     nestedLinks: [
-      { label: 'Portfolio', path: 'recuadros' },
-      { label: 'Storytelling', path: 'juntos' },
-      { label: 'Memoria Conceptual', path: 'familia' },
+    ],
+    files: [
+      { label: 'Portfolio', path: 'Portfolio.pdf' },
+      { label: 'Storytelling', path: 'Storytelling.pdf' },
+      { label: 'Memoria Conceptual', path: 'MemoriaConceptual.pdf' },
     ],
   },
   {
@@ -61,6 +71,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     path: '/exibitions',
     imageKey: 'Exhibiciones',
     isNested: true,
+    isInfoSection: false,
     nestedLinks: [
       { label: '2025', path: '2025' },
       { label: '2024', path: '2024' },
@@ -68,22 +79,30 @@ export const navbarLinksData: NavbarLinkData[] = [
       { label: '2022', path: '2022' },
       { label: '2021-20-19', path: '2021' },
     ],
+    files: [],
   },
   {
     label: 'PREMIOS',
     path: '/prices',
     imageKey: 'Premios',
     isNested: false,
+    isInfoSection: true,
     nestedLinks: [],
+    files: [{ label: 'Premios', path: 'Premios.pdf' }],
   },
   {
     label: 'ARTE AFRICANO',
     imageKey: 'Africano',
     path: '/african',
     isNested: true,
+    isInfoSection: true,
     nestedLinks: [
       { label: 'Báculos', path: 'baculos' },
       { label: 'Máscaras', path: 'masks' },
+    ],
+    files: [
+      { label: 'Báculos', path: 'BaculosAfricanos.pdf' },
+      { label: 'Máscaras', path: 'MascarasTribales.pdf' },
     ],
   },
   {
@@ -91,6 +110,8 @@ export const navbarLinksData: NavbarLinkData[] = [
     path: '/contact',
     imageKey: 'Contacto',
     isNested: false,
+    isInfoSection: true,
     nestedLinks: [],
+    files: [],
   },
 ];
