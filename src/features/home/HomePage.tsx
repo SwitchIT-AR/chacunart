@@ -1,10 +1,14 @@
 import { Carousel, CarouselSlide } from '@mantine/carousel';
 import { Container, Image } from '@mantine/core';
 import Autoplay from 'embla-carousel-autoplay';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function HomePage() {
   const autoplay = useRef(Autoplay({ delay: 3000 }));
+
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // o 'auto' si no querés animación
+}, []);
 
   return (
     <Container

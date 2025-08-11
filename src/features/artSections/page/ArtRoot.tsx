@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router';
 import { navbarLinksData } from '../../../layout/components/navbar/links';
 import ErrorScreen from '../../../errors/ErrorScreen';
 import classes from './ArtRoot.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Submenu {
   imagePathColor: string;
@@ -21,6 +21,10 @@ export default function ArtRoot() {
   const link = navbarLinksData.filter(
     (link) => link.path === `/${exibitionLabel}`,
   );
+
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // o 'auto' si no querés animación
+}, []);
 
   if (!link) {
     return (

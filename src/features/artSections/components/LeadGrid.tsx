@@ -1,4 +1,5 @@
-import { Container, Grid, Image, SimpleGrid, Stack } from '@mantine/core';
+import { Image } from '@mantine/core';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { Obra } from '../../../utils/Global.types';
 
 const FALLBACK =
@@ -27,7 +28,6 @@ export default function LeadGrid({
   component: ItemComponent,
 }: LeadGridProps) {
   const groups = chunk4(obras);
-  const SECONDARY_H = `calc(${primaryHeight} / 2 - var(--mantine-spacing-md) / 2)`;
 
   if (!groups.length) return null;
 
@@ -43,35 +43,49 @@ export default function LeadGrid({
   };
 
   return (
-    <Container>
-      <Stack gap="md">
-        {groups.map((items, idx) => {
-          const reverse = idx % 2 === 1;
-          const [main, second, third, fourth] = items;
-          if (!main) return null; // nada que renderizar en este bloque
-
-          const Main = renderItem(main, primaryHeight);
-
-          const Secondary = (
-            <Grid gutter="md">
-              {second && <Grid.Col>{renderItem(second, SECONDARY_H)}</Grid.Col>}
-              {third && (
-                <Grid.Col span={6}>{renderItem(third, SECONDARY_H)}</Grid.Col>
-              )}
-              {fourth && (
-                <Grid.Col span={6}>{renderItem(fourth, SECONDARY_H)}</Grid.Col>
-              )}
-            </Grid>
-          );
-
-          return (
-            <SimpleGrid key={idx} cols={{ base: 1, sm: 2 }} spacing="md">
-              {reverse ? Secondary : Main}
-              {reverse ? Main : Secondary}
-            </SimpleGrid>
-          );
-        })}
-      </Stack>
-    </Container>
+    <ResponsiveMasonry
+      columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+    >
+      <Masonry>
+        {
+          obras.map((obra) => (
+            renderItem(obra, primaryHeight)
+          ))
+        }
+      </Masonry>
+    </ResponsiveMasonry>
   );
+
+  // return (
+  //   <Container>
+  //     <Stack gap="md">
+  //       {groups.map((items, idx) => {
+  //         const reverse = idx % 2 === 1;
+  //         const [main, second, third, fourth] = items;
+  //         if (!main) return null; // nada que renderizar en este bloque
+
+  //         const Main = renderItem(main, primaryHeight);
+
+  //         const Secondary = (
+  //           <Grid gutter="md">
+  //             {second && <Grid.Col>{renderItem(second, SECONDARY_H)}</Grid.Col>}
+  //             {third && (
+  //               <Grid.Col span={6}>{renderItem(third, SECONDARY_H)}</Grid.Col>
+  //             )}
+  //             {fourth && (
+  //               <Grid.Col span={6}>{renderItem(fourth, SECONDARY_H)}</Grid.Col>
+  //             )}
+  //           </Grid>
+  //         );
+
+  //         return (
+  //           <SimpleGrid key={idx} cols={{ base: 1, sm: 2 }} spacing="md">
+  //             {reverse ? Secondary : Main}
+  //             {reverse ? Main : Secondary}
+  //           </SimpleGrid>
+  //         );
+  //       })}
+  //     </Stack>
+  //   </Container>
+  // );
 }
