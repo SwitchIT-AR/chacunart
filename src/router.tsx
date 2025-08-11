@@ -5,6 +5,7 @@ import ErrorScreen from './errors/ErrorScreen';
 import Root from './features/commons/Root';
 import HomePage from './features/home/HomePage';
 import ArtRoot from './features/artSections/page/ArtRoot';
+import ArtSubSectionPage from './features/artSections/page/ArtSubSectionPage';
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
       { path: '', element: <HomePage /> },
       { path: ':exibitionLabel', element: <Root />, children: [
         { path: '', element: <ArtRoot /> },
-        { path: ':exibitionSubLabel', element: <></> },
+        { path: ':exibitionSubLabel', element: <ArtSubSectionPage /> },
       ] }
     ],
     errorElement: (

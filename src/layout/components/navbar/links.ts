@@ -87,7 +87,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     imageKey: 'Premios',
     isNested: false,
     isInfoSection: true,
-    nestedLinks: [],
+    nestedLinks: [    ],
     files: [{ label: 'Premios', path: 'Premios.pdf' }],
   },
   {
@@ -98,7 +98,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     isInfoSection: true,
     nestedLinks: [
       { label: 'Báculos', path: 'baculos' },
-      { label: 'Máscaras', path: 'masks' },
+      { label: 'Máscaras', path: 'mascaras' },
     ],
     files: [
       { label: 'Báculos', path: 'BaculosAfricanos.pdf' },

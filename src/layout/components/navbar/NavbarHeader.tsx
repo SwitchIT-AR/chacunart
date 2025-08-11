@@ -14,7 +14,7 @@ export default function NavbarHeader() {
       component={Link}
       to={'/'}
     >
-      <Image src="/assets/ChristianAcuna-logo.jpg" w={250} />
+      <Image src="/assets/ChristianAcuna-logo.jpg" w={250} fallbackSrc="https://placehold.co/250" />
     </Box>
   );
 }
