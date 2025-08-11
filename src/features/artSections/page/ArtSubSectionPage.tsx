@@ -1,10 +1,10 @@
 import { Box, Title } from '@mantine/core';
-// import LeadGrid from '../components/LeadGrid';
-import { GridAsymmetrical } from '../components/AsymetricGrid';
 import { useParams } from 'react-router';
 import obrasDataJson from '../../../utils/obras_full.json';
 import ErrorScreen from '../../../errors/ErrorScreen';
 import { ObrasData } from '../../../utils/Global.types';
+import LeadGrid from '../components/LeadGrid';
+import ArtModal from '../components/ArtModal';
 
 export default function ArtSubSectionPage() {
   const { exibitionLabel, exibitionSubLabel } = useParams();
@@ -20,28 +20,12 @@ export default function ArtSubSectionPage() {
     );
   }
 
-  // const leadData = exibitionData.obras.slice(0, 4);
-  // const asymData = exibitionData.obras.slice(4);
-
   return (
     <Box component="section" py={'md'}>
       <Title ta={'center'} mb={'md'}>
         {exibitionData.label}
       </Title>
-      <Box mb="md">
-        {/* <LeadGrid
-          mainObra={leadData[0]}
-          secondObra={leadData[1]}
-          thirdObra={leadData[2]}
-          fourthObra={leadData[3]}
-        /> */}
-      </Box>
-      <GridAsymmetrical
-        obras={exibitionData.obras}
-        // renderItem={(obra) => (
-        //   <Image src={} />
-        // )}
-      />
+      <LeadGrid obras={exibitionData.obras} component={ArtModal} />
     </Box>
   );
 }
