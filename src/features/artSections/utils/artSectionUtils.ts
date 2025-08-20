@@ -12,4 +12,13 @@ export function getAsymSpans(
     base,
     xs: xsPattern[i % xsPattern.length],
   }));
+};
+
+export const imageExists = async (url: string) => {
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    return response.ok;
+  } catch {
+    return false;
+  }
 }

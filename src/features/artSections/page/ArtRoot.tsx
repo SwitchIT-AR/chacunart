@@ -4,6 +4,7 @@ import { navbarLinksData } from '../../../layout/components/navbar/links';
 import ErrorScreen from '../../../errors/ErrorScreen';
 import classes from './ArtRoot.module.css';
 import { useEffect, useState } from 'react';
+import { Carousel } from '@mantine/carousel';
 
 interface Submenu {
   imagePathColor: string;
@@ -23,8 +24,8 @@ export default function ArtRoot() {
   );
 
   useEffect(() => {
-  window.scrollTo({ top: 0, behavior: 'smooth' }); // o 'auto' si no querés animación
-}, []);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // o 'auto' si no querés animación
+  }, []);
 
   if (!link) {
     return (
@@ -64,7 +65,9 @@ export default function ArtRoot() {
               height={'800px'}
             />
           ) : (
-            <Title order={2} ta={'center'} mt={'xl'}>Seleccione una opcion para vizualisar</Title>
+            <Title order={2} ta={'center'} mt={'xl'}>
+              Seleccione una opcion para vizualisar
+            </Title>
           )}
         </Box>
       );
@@ -93,7 +96,26 @@ export default function ArtRoot() {
 
   return (
     <Box component="section">
-      <Box className={classes.submenuContainer}>
+      <Carousel
+        slideSize={submenus.length > 5 ? '50%' : "60%"}
+        height={'100vh'}
+        emblaOptions={{
+          loop: true,
+          // dragFree: true,
+          align: 'center',
+        }}
+      >
+        {submenus.map((submenu) => (
+          <Carousel.Slide key={submenu.submenuLabel}>
+            <img
+              src={submenu.imagePathColor}
+              alt={submenu.submenuLabel}
+              className={classes.image}
+            />
+          </Carousel.Slide>
+        ))}
+      </Carousel>
+      {/* <Box className={classes.submenuContainer}>
         {submenus.map((submenu) => (
           <Box
             key={submenu.submenuLabel}
@@ -108,21 +130,18 @@ export default function ArtRoot() {
             />
           </Box>
         ))}
-      </Box>
-      {
-        (linkData.files.length > 0) && 
-          linkData.files.map((file) => (
-            <Box key={file.label}>
-              <embed
-                src={`/assets/DOCUMENTOS/${file.path}`}
-                type="application/pdf"
-                width={'100%'}
-                height={'800px'}  
-              />
-            </Box>
-          ))
-        
-      }
+      </Box> */}
+      {linkData.files.length > 0 &&
+        linkData.files.map((file) => (
+          <Box key={file.label}>
+            <embed
+              src={`/assets/DOCUMENTOS/${file.path}`}
+              type="application/pdf"
+              width={'100%'}
+              height={'800px'}
+            />
+          </Box>
+        ))}
     </Box>
   );
 }

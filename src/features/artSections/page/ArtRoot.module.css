@@ -52,6 +52,6 @@
   transition: filter 0.5s ease;
 }
 
-.submenuItem:hover .image {
+.image:hover {
   filter: grayscale(0%);
 }
