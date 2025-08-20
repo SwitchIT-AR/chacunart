@@ -97,7 +97,7 @@ export default function ArtRoot() {
   return (
     <Box component="section">
       <Carousel
-        slideSize={submenus.length > 5 ? '50%' : "60%"}
+        slideSize={submenus.length > 5 ? '50%' : '60%'}
         height={'100vh'}
         emblaOptions={{
           loop: true,
@@ -107,11 +107,13 @@ export default function ArtRoot() {
       >
         {submenus.map((submenu) => (
           <Carousel.Slide key={submenu.submenuLabel}>
-            <img
-              src={submenu.imagePathColor}
-              alt={submenu.submenuLabel}
-              className={classes.image}
-            />
+            <Box component={Link} to={submenu.submenuPath}>
+              <img
+                src={submenu.imagePathColor}
+                alt={submenu.submenuLabel}
+                className={classes.image}
+              />
+            </Box>
           </Carousel.Slide>
         ))}
       </Carousel>
