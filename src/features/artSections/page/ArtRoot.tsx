@@ -97,7 +97,8 @@ export default function ArtRoot() {
   return (
     <Box component="section">
       <Carousel
-        slideSize={submenus.length > 5 ? '50%' : '60%'}
+        slideSize={submenus.length > 5 ? '33.3%' : '33.3%'}
+        slideGap={'md'}
         height={'100vh'}
         emblaOptions={{
           loop: true,
@@ -107,7 +108,7 @@ export default function ArtRoot() {
       >
         {submenus.map((submenu) => (
           <Carousel.Slide key={submenu.submenuLabel}>
-            <Box component={Link} to={submenu.submenuPath}>
+            <Box component={Link} to={submenu.submenuPath} style={{ display: 'flex', justifyContent: 'center' }}>
               <img
                 src={submenu.imagePathColor}
                 alt={submenu.submenuLabel}
@@ -117,22 +118,6 @@ export default function ArtRoot() {
           </Carousel.Slide>
         ))}
       </Carousel>
-      {/* <Box className={classes.submenuContainer}>
-        {submenus.map((submenu) => (
-          <Box
-            key={submenu.submenuLabel}
-            className={classes.submenuItem}
-            component={Link}
-            to={submenu.submenuPath}
-          >
-            <img
-              src={submenu.imagePathColor}
-              alt={submenu.submenuLabel}
-              className={classes.image}
-            />
-          </Box>
-        ))}
-      </Box> */}
       {linkData.files.length > 0 &&
         linkData.files.map((file) => (
           <Box key={file.label}>
