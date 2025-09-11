@@ -19,7 +19,7 @@ export default function HomePage() {
         <Carousel
           withIndicators
           orientation="vertical"
-          height={'100%'}
+          height={'100dvh'}
           flex={1}
           plugins={[autoplay.current]}
           emblaOptions={{ duration: 75 }}
