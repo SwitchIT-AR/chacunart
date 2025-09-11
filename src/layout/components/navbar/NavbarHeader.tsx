@@ -1,20 +1,34 @@
-import { Box, Image } from "@mantine/core";
-import { Link } from "react-router";
+import { Box, Burger, Image } from '@mantine/core';
+import { Link } from 'react-router';
+import { useBreakpoint } from '../../../utils/utils';
 
-export default function NavbarHeader() {
+interface NavbarHeaderProps {
+  toggle: () => void;
+  opened: boolean;
+}
+
+export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
+  const breakpoint = useBreakpoint();
   return (
     <Box
       p={'xl'}
       style={{
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: breakpoint.isMobile ? 'space-between' : 'center',
         alignItems: 'center',
         backgroundColor: 'black',
       }}
-      component={Link}
-      to={'/'}
     >
-      <Image src="/assets/ChristianAcuna-logo.jpg" w={250} fallbackSrc="https://placehold.co/250" />
+      <Box component={Link} to={'/'}>
+        <Image
+          src="/assets/ChristianAcuna-logo.jpg"
+          w={breakpoint.isMobile ? 150 : 250}
+          fallbackSrc="https://placehold.co/250"
+        />
+      </Box>
+      {breakpoint.isMobile && (
+        <Burger opened={opened} onClick={toggle} style={{}} />
+      )}
     </Box>
   );
 }

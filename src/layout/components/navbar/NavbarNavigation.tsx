@@ -15,13 +15,17 @@ export interface ParsedMenuItem {
   }[];
 }
 
-export default function NavbarNavigation() {
+interface NavbarNavigationProps {
+  toggle: () => void;
+}
+
+export default function NavbarNavigation({ toggle }: NavbarNavigationProps) {
 
   return (
       <Stack ta={'center'}>
         {
           navbarLinksData.map((navbarLink) => (
-            <NavbarLink key={navbarLink.path} data={navbarLink} />
+            <NavbarLink key={navbarLink.path} data={navbarLink} toggleNavbar={toggle} />
           ))
         }
       </Stack>

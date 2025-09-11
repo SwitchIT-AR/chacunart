@@ -3,20 +3,42 @@ import { ReactNode } from 'react';
 import NavbarHeader from './navbar/NavbarHeader';
 import NavbarNavigation from './navbar/NavbarNavigation';
 import NavbarFooter from './NavbarFooter';
+import { useDisclosure } from '@mantine/hooks';
+import { useBreakpoint } from '../../utils/utils';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const [opened, { toggle }] = useDisclosure();
+  const breakpoint = useBreakpoint();
   return (
-    <AppShell navbar={{ breakpoint: 'sm', width: '320px' }}>
+    <AppShell
+      navbar={{
+        breakpoint: 'sm',
+        width: '320px',
+        collapsed: { mobile: !opened },
+      }}
+      header={{ height: 110 }}
+    >
+      {
+        breakpoint.isMobile && (
+          <AppShell.Header>
+            <NavbarHeader opened={opened} toggle={toggle} />
+          </AppShell.Header>
+        )
+      }
       <AppShell.Navbar style={{ backgroundColor: 'black' }}>
-        <AppShell.Section>
-          <NavbarHeader />
-        </AppShell.Section>
+        {
+          !breakpoint.isMobile && (
+          <AppShell.Section>
+            <NavbarHeader opened={opened} toggle={toggle} />
+          </AppShell.Section>
+          )
+        }
         <AppShell.Section grow component={ScrollArea}>
-          <NavbarNavigation />
+          <NavbarNavigation toggle={toggle} />
         </AppShell.Section>
         <AppShell.Section>
           <NavbarFooter />
