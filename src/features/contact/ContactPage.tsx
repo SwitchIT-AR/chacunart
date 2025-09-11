@@ -8,12 +8,12 @@ import {
 import { encodeSpaces } from '../../utils/utils';
 
 export default function ContactPage() {
-  const whappNumber = 123456667;
+  const whappNumber = '+5491141881927';
   const text1 = encodeSpaces(
-    'Quiero conocer los precios de las obras',
+    'Hola Christan! Quiero conocer los precios de las obras',
   );
   const text2 = encodeSpaces(
-    '¿Por donde puedo pasar a ver las obras?',
+    'Hola Christan! ¿Por donde puedo pasar a ver las obras?',
   );
   return (
     <Container component="section" p={'md'}>

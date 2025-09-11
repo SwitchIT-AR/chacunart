@@ -1,7 +1,7 @@
 import { Button, Group, ScrollArea, Text, Title } from '@mantine/core';
-import { isRouteErrorResponse,useNavigate, useRouteError } from 'react-router-dom';
 
 import classes from './ServerError.module.css';
+import { isRouteErrorResponse, useNavigate, useRouteError } from 'react-router';
 
 interface ErrorPageProps {
   message?: string;
