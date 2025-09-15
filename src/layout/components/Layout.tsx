@@ -20,7 +20,7 @@ export default function Layout({ children }: LayoutProps) {
         width: '320px',
         collapsed: { mobile: !opened },
       }}
-      header={{ height: breakpoint.isMobile ? 110 : 0 }}
+      header={{ height: breakpoint.isMobile ? '14dvh' : 0 }}
     >
       {
         breakpoint.isMobile && (
