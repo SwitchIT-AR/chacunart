@@ -26,7 +26,13 @@ export default function NavbarLink({ data, toggleNavbar }: NavbarLinkProps) {
         <Text
           component={Link}
           to={data.path}
-          onClick={() => toggle()}
+          onClick={() => {
+            if (breakpoint.isMobile) {
+              toggleNavbar();
+            } else {
+              toggle();
+            }
+          }}
           className={classes.label}
         >
           {data.label}
