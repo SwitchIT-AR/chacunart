@@ -15,6 +15,9 @@ import classes from './ArtModal.module.css';
 import { IconBrandYoutube, IconX } from '@tabler/icons-react';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
+import { useState } from 'react';
+
+
 interface ArtModalProps {
   obra: Obra;
   height: string;
@@ -22,6 +25,8 @@ interface ArtModalProps {
 
 const getImagesUrl = (obraNumber: string) => {
   const urls = [];
+
+
 
   for (let i = 1; i <= 10; i++) {
     urls.push(`/assets/OBRAS/${obraNumber}-00${i}.JPEG`);
@@ -35,6 +40,7 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
   const obraSrc = (o?: Obra) =>
     o ? `/assets/OBRAS/${o.numero}-001.JPEG` : undefined;
 
+  const [thumbOk, setThumbOk] = useState(true);
   const imagesUrl = getImagesUrl(obra.numero);
   return (
     <>
@@ -93,7 +99,7 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
                   mt={'md'}
                   component="a"
                   variant="light"
-                  color="red"
+                  color="transparent"
                   target="_blank"
                   href={obra.video}
                   leftSection={<IconBrandYoutube />}
@@ -107,24 +113,36 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
             >
               <Masonry>
                 {imagesUrl.map((url) => (
-                  <Image
-                    key={url}
-                    src={url}
-                    fallbackSrc={FALLBACK}
-                  />
+                  <img
+        key={url}
+        src={url}
+        style={{ width: '100%', display: 'block' }}
+        onError={(e) => {
+          // si querés que no deje hueco:
+          e.currentTarget.remove();
+          // si preferís mantener el hueco:
+          // e.currentTarget.style.visibility = 'hidden';
+        }}
+        loading="lazy"
+      />
                 ))}
               </Masonry>
             </ResponsiveMasonry>
           </Container>
         </Box>
       </Modal>
-      <Image
-        className={classes.image}
-        src={obraSrc(obra)}
-        fallbackSrc={FALLBACK}
-        h={height}
-        onClick={() => open()}
-      />
+{thumbOk && obraSrc(obra) && (
+  <Image
+    className={classes.image}
+    src={obraSrc(obra)!}
+    h={height}
+    onClick={open}
+    // sin fallbackSrc
+    onError={(e) => {
+      setThumbOk(false); // si 404, no se muestra nada
+    }}
+  />
+)}
     </>
   );
 }
