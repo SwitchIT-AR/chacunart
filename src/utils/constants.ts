@@ -1,1 +1,2 @@
-export const FALLBACK = 'https://placehold.co/600x400/EEE/31343C?font=playfair-display&text=Sin%20Informacion';
+export const FALLBACK =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12P4z8DwHwAFgwJ/l2ivOQAAAABJRU5ErkJggg==';
