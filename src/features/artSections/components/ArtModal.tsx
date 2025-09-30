@@ -32,7 +32,7 @@ const getImagesUrl = (obraNumber: string) => {
   return urls;
 };
 
-export default function ArtModal({ obra, height }: ArtModalProps) {
+export default function ArtModal({ obra }: ArtModalProps) {
   const [opened, { open, close }] = useDisclosure(false);
   const obraSrc = (o?: Obra) =>
     o ? `/assets/OBRAS/${o.numero}-001.JPEG` : undefined;
@@ -108,7 +108,13 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
             >
               <Masonry>
                 {imagesUrl.map((url) => (
-                  <a key={url} href={url} target='_blank' rel='noreferrer' className={classes.imageContainer}>
+                  <a
+                    key={url}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={classes.imageContainer}
+                  >
                     <img
                       src={url}
                       onError={(e) => {
@@ -125,16 +131,39 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
         </Box>
       </Modal>
       {thumbOk && obraSrc(obra) && (
-        <Image
-          className={classes.image}
-          src={obraSrc(obra)!}
-          h={height}
-          onClick={open}
-          // sin fallbackSrc
-          onError={() => {
-            setThumbOk(false); // si 404, no se muestra nada
+        <Box
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            position: 'relative',
           }}
-        />
+        >
+          <Text
+            style={{
+              position: 'absolute',
+              fontSize: '1.5rem',
+              color: 'black',
+              fontWeight: 100,
+              // backgroundColor: 'var(--mantine-color-gray-1)',
+              top: '10px',
+              zIndex: 1,
+              // bottom: '50%',
+              fontFamily: 'Roboto',
+            }}
+          >
+            {obra.nombre}
+          </Text>
+          <Image
+            className={classes.image}
+            src={obraSrc(obra)!}
+            // h={height}
+            onClick={open}
+            // sin fallbackSrc
+            onError={() => {
+              setThumbOk(false); // si 404, no se muestra nada
+            }}
+          />
+        </Box>
       )}
     </>
   );

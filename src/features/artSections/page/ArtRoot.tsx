@@ -1,4 +1,4 @@
-import { Box, Title } from '@mantine/core';
+import { Box, Text, Title } from '@mantine/core';
 import { Link, useParams } from 'react-router';
 import { navbarLinksData } from '../../../layout/components/navbar/links';
 import ErrorScreen from '../../../errors/ErrorScreen';
@@ -108,7 +108,8 @@ export default function ArtRoot() {
       >
         {submenus.map((submenu) => (
           <Carousel.Slide key={submenu.submenuLabel}>
-            <Box component={Link} to={submenu.submenuPath} style={{ display: 'flex', justifyContent: 'center' }}>
+            <Box component={Link} to={submenu.submenuPath} style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+              <Text style={{ position: 'absolute', fontSize: '7rem', color: 'white', zIndex: 1, bottom: '50%', fontFamily: 'Roboto' }}>{submenu.submenuLabel}</Text>
               <img
                 src={submenu.imagePathColor}
                 alt={submenu.submenuLabel}
