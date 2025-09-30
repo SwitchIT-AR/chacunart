@@ -1,4 +1,4 @@
-import { Box, Text, Title } from '@mantine/core';
+import { Box, Title } from '@mantine/core';
 import { Link, useParams } from 'react-router';
 import { navbarLinksData } from '../../../layout/components/navbar/links';
 import ErrorScreen from '../../../errors/ErrorScreen';
@@ -136,10 +136,10 @@ export default function ArtRoot() {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                position: 'relative',
+                // position: 'relative',
               }}
             >
-              <Text
+              {/* <Text
                 style={{
                   position: 'absolute',
                   fontSize: '7rem',
@@ -150,7 +150,7 @@ export default function ArtRoot() {
                 }}
               >
                 {submenu.submenuLabel}
-              </Text>
+              </Text> */}
               <img
                 src={submenu.imagePathColor}
                 alt={submenu.submenuLabel}
