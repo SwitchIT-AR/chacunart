@@ -17,7 +17,6 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 import { useState } from 'react';
 
-
 interface ArtModalProps {
   obra: Obra;
   height: string;
@@ -25,8 +24,6 @@ interface ArtModalProps {
 
 const getImagesUrl = (obraNumber: string) => {
   const urls = [];
-
-
 
   for (let i = 1; i <= 10; i++) {
     urls.push(`/assets/OBRAS/${obraNumber}-00${i}.JPEG`);
@@ -39,8 +36,6 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
   const [opened, { open, close }] = useDisclosure(false);
   const obraSrc = (o?: Obra) =>
     o ? `/assets/OBRAS/${o.numero}-001.JPEG` : undefined;
-
-
 
   const [thumbOk, setThumbOk] = useState(true);
   const imagesUrl = getImagesUrl(obra.numero);
@@ -78,13 +73,6 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
                 </Text>
                 {obra.peso ? obra.peso : 'Sin información'}
               </Text>
-  {/*             <Text>
-              
-                <Text span className={classes.labelTitles}>
-                  Precio:{' '}
-                </Text>
-                {obra.precioUsd ? obra.precioUsd : 'Sin información'}
-              </Text> */}
               <Text>
                 <Text span className={classes.labelTitles}>
                   Técnica:{' '}
@@ -95,9 +83,12 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
                 <Text span className={classes.labelTitles}>
                   Estado:{' '}
                 </Text>
-  {obra.estado
-    ? { C: "En Galería", V: "Vendida", D: "Donada" }[obra.estado] ?? "Sin información"
-    : "Disponible"}              </Text>
+                {obra.estado
+                  ? ({ C: 'En Galería', V: 'Vendida', D: 'Donada' }[
+                      obra.estado
+                    ] ?? 'Sin información')
+                  : 'Disponible'}{' '}
+              </Text>
               {obra.video && (
                 <Button
                   mt={'md'}
@@ -117,37 +108,34 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
             >
               <Masonry>
                 {imagesUrl.map((url) => (
-                  <img
-        key={url}
-        src={url}
-        style={{ width: '100%', display: 'block' }}
-        onError={(e) => {
-          // si querés que no deje hueco:
-          e.currentTarget.remove();
-          // si preferís mantener el hueco:
-          // e.currentTarget.style.visibility = 'hidden';
-        }}
-        loading="lazy"
-      />
+                  <a key={url} href={url} target='_blank' rel='noreferrer' className={classes.imageContainer}>
+                    <img
+                      src={url}
+                      onError={(e) => {
+                        e.currentTarget.remove();
+                      }}
+                      loading="lazy"
+                      className={classes.hoverZoom}
+                    />
+                  </a>
                 ))}
               </Masonry>
             </ResponsiveMasonry>
           </Container>
         </Box>
       </Modal>
-{thumbOk && obraSrc(obra) && (
-  <Image
-    className={classes.image}
-    src={obraSrc(obra)!}
-    h={height}
-    onClick={open}
-    // sin fallbackSrc
-    onError={(_e) => {
-      setThumbOk(false); // si 404, no se muestra nada
-     
-    }}
-  />
-)}
+      {thumbOk && obraSrc(obra) && (
+        <Image
+          className={classes.image}
+          src={obraSrc(obra)!}
+          h={height}
+          onClick={open}
+          // sin fallbackSrc
+          onError={() => {
+            setThumbOk(false); // si 404, no se muestra nada
+          }}
+        />
+      )}
     </>
   );
 }

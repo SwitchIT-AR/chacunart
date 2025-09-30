@@ -15,3 +15,16 @@
 .lableTitles {
   font-weight: 900;
 }
+
+.imageContainer {
+  overflow: hidden;
+}
+
+.hoverZoom {
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.hoverZoom:hover {
+  transform: scale(1.1);
+}
