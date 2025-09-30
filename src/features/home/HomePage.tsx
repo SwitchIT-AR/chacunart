@@ -9,19 +9,27 @@ export default function HomePage() {
   const breakpoint = useBreakpoint();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // o 'auto' si no querés animación
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   }, []);
+
+  // helper para elegir imagen segun mobile o desktop
+  const getImage = (name: string) =>
+    breakpoint.isMobile ? `/assets/MENU/${name}_MOV.JPEG` : `/assets/MENU/${name}.JPEG`;
 
   return (
     <Container
-      component={'section'}
-      style={{ height: breakpoint.isMobile ? '86dvh' : '100dvh', display: 'flex', padding: 0 }}
+      component="section"
+      style={{
+        height: breakpoint.isMobile ? '86dvh' : '100dvh',
+        display: 'flex',
+        padding: 0,
+      }}
       fluid
     >
       <Carousel
         withIndicators
         orientation="vertical"
-        height={'100%'}
+        height="100%"
         flex={1}
         plugins={[autoplay.current]}
         emblaOptions={{ duration: 75 }}
@@ -30,31 +38,7 @@ export default function HomePage() {
         <CarouselSlide>
           <Box
             style={{
-              backgroundImage: 'url(/assets/MENU/Menu_01C.JPEG)',
-              backgroundSize: 'fill',
-              // backgroundPosition: breakpoint.isMobile ? 'left' : 'center',
-              backgroundRepeat: 'no-repeat',
-              width: '100%',
-              height: '100%',
-            }}
-          />
-        </CarouselSlide>
-        <CarouselSlide>
-          <Box
-            style={{
-              backgroundImage: 'url(/assets/MENU/Menu_02C.JPEG)',
-              backgroundSize: 'fill',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              width: '100%',
-              height: '100%',
-            }}
-          />
-        </CarouselSlide>
-        <CarouselSlide>
-          <Box
-            style={{
-              backgroundImage: 'url(/assets/MENU/Menu_03C.JPEG)',
+              backgroundImage: `url(${getImage('Menu_01C')})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -66,7 +50,7 @@ export default function HomePage() {
         <CarouselSlide>
           <Box
             style={{
-              backgroundImage: 'url(/assets/MENU/Menu_04C.JPEG)',
+              backgroundImage: `url(${getImage('Menu_02C')})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -75,19 +59,31 @@ export default function HomePage() {
             }}
           />
         </CarouselSlide>
-
-        {/* <img src={'/assets/MENU/Menu_01C.JPEG'} style={{  width: 'auto', objectFit: 'contain' }} /> */}
-        {/* <CarouselSlide>
-            <Image src={'/assets/MENU/Menu_02C.JPEG'} />
-          </CarouselSlide>
-          <CarouselSlide>
-            <Image src={'/assets/MENU/Menu_03C.JPEG'} />
-          </CarouselSlide>
-          <CarouselSlide>
-            <Image src={'/assets/MENU/Menu_04C.JPEG'} />
-          </CarouselSlide> */}
+        <CarouselSlide>
+          <Box
+            style={{
+              backgroundImage: `url(${getImage('Menu_03C')})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </CarouselSlide>
+        <CarouselSlide>
+          <Box
+            style={{
+              backgroundImage: `url(${getImage('Menu_04C')})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </CarouselSlide>
       </Carousel>
-      {/* )} */}
     </Container>
   );
 }
