@@ -9,7 +9,7 @@ import {
   Title,
 } from '@mantine/core';
 import { Obra } from '../../../utils/Global.types';
-import { FALLBACK } from '../../../utils/constants';
+//import { FALLBACK } from '../../../utils/constants';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './ArtModal.module.css';
 import { IconBrandYoutube, IconX } from '@tabler/icons-react';
@@ -39,6 +39,8 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
   const [opened, { open, close }] = useDisclosure(false);
   const obraSrc = (o?: Obra) =>
     o ? `/assets/OBRAS/${o.numero}-001.JPEG` : undefined;
+
+
 
   const [thumbOk, setThumbOk] = useState(true);
   const imagesUrl = getImagesUrl(obra.numero);
@@ -76,12 +78,13 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
                 </Text>
                 {obra.peso ? obra.peso : 'Sin información'}
               </Text>
-              <Text>
+  {/*             <Text>
+              
                 <Text span className={classes.labelTitles}>
                   Precio:{' '}
                 </Text>
                 {obra.precioUsd ? obra.precioUsd : 'Sin información'}
-              </Text>
+              </Text> */}
               <Text>
                 <Text span className={classes.labelTitles}>
                   Técnica:{' '}
@@ -92,8 +95,9 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
                 <Text span className={classes.labelTitles}>
                   Estado:{' '}
                 </Text>
-                {obra.estado ? obra.estado : 'Sin información'}
-              </Text>
+  {obra.estado
+    ? { C: "En Galería", V: "Vendida", D: "Donada" }[obra.estado] ?? "Sin información"
+    : "Disponible"}              </Text>
               {obra.video && (
                 <Button
                   mt={'md'}
@@ -138,8 +142,9 @@ export default function ArtModal({ obra, height }: ArtModalProps) {
     h={height}
     onClick={open}
     // sin fallbackSrc
-    onError={(e) => {
+    onError={(_e) => {
       setThumbOk(false); // si 404, no se muestra nada
+     
     }}
   />
 )}

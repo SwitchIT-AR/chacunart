@@ -4,6 +4,7 @@ import {
   IconBrandInstagramFilled,
   IconBrandWhatsapp,
   IconBrandYoutubeFilled,
+  IconMail
 } from '@tabler/icons-react';
 import { encodeSpaces } from '../../utils/utils';
 
@@ -41,6 +42,17 @@ export default function ContactPage() {
           ¿Por donde puedo pasar a ver las obras?
         </Anchor>
         <IconBrandWhatsapp color="white" size={'2rem'} />
+      </Paper>
+            <Paper p={'lg'} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem' }} mb={'lg'}>
+        <Anchor
+          href={`mailto:chacunart@gmail.com`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'white', fontWeight: 600, fontSize: '1.5rem'}}
+        >
+          Escribime a chacunart@gmail.com
+        </Anchor>
+        <IconMail color="white" size={'2rem'} />
       </Paper>
       <Group justify="space-around" p="xl">
         <Anchor

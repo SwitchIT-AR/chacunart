@@ -3,7 +3,7 @@
     "label": "Obras Año",
     "series": {
       "2018": {
-        "label": "Serie 2018",
+        "label": "2018",
         "obras": [
           {
             "numero": "0001",
@@ -73,7 +73,7 @@
         ]
       },
       "2019": {
-        "label": "Serie 2019",
+        "label": "2019",
         "obras": [
           {
             "numero": "0006",
@@ -351,7 +351,7 @@
         ]
       },
       "2020": {
-        "label": "Serie 2020",
+        "label": "2020",
         "obras": [
           {
             "numero": "0027",
@@ -590,7 +590,7 @@
         ]
       },
       "2021": {
-        "label": "Serie 2021",
+        "label": "2021",
         "obras": [
           {
             "numero": "0044",
@@ -764,7 +764,7 @@
         ]
       },
       "2022": {
-        "label": "Serie 2022",
+        "label": "2022",
         "obras": [
           {
             "numero": "0059",
@@ -1029,7 +1029,7 @@
         ]
       },
       "2023": {
-        "label": "Serie 2023",
+        "label": "2023",
         "obras": [
           {
             "numero": "0079",
@@ -1307,7 +1307,7 @@
         ]
       },
       "2024": {
-        "label": "Serie 2024",
+        "label": "2024",
         "obras": [
           {
             "numero": "0102",
@@ -1611,7 +1611,7 @@
         ]
       },
       "2025": {
-        "label": "Serie 2025",
+        "label": "2025",
         "obras": [
           {
             "numero": "0125",
@@ -1725,7 +1725,7 @@
     "label": "Obras Serie",
     "series": {
       "alegria": {
-        "label": "Serie Alegría",
+        "label": "Alegría",
         "obras": [
           {
             "numero": "0064",
@@ -1860,7 +1860,7 @@
         ]
       },
       "amigos": {
-        "label": "Serie Amigos",
+        "label": "Amigos",
         "obras": [
           {
             "numero": "0092",
@@ -1904,7 +1904,7 @@
         ]
       },
       "asombro": {
-        "label": "Serie Asombro",
+        "label": "Asombro",
         "obras": [
           {
             "numero": "0086",
@@ -1987,7 +1987,7 @@
         ]
       },
       "familias": {
-        "label": "Serie Familias",
+        "label": "Familias",
         "obras": [
           {
             "numero": "0024",
@@ -2382,7 +2382,7 @@
         ]
       },
       "juntos": {
-        "label": "Serie Juntos",
+        "label": "Juntos",
         "obras": [
           {
             "numero": "0120",
@@ -2452,7 +2452,7 @@
         ]
       },
       "recuadros": {
-        "label": "Serie Re-Cuadros",
+        "label": "Re-Cuadros",
         "obras": [
           {
             "numero": "0020",
@@ -2566,7 +2566,7 @@
     "label": "Exhibiciones",
     "series": {
       "2022": {
-        "label": "Serie 2022",
+        "label": "2022",
         "obras": [
           {
             "numero": "3060",
@@ -2649,7 +2649,7 @@
         ]
       },
       "2023": {
-        "label": "Serie 2023",
+        "label": "2023",
         "obras": [
           {
             "numero": "3120",
@@ -2771,7 +2771,7 @@
         ]
       },
       "2024": {
-        "label": "Serie 2024",
+        "label": "2024",
         "obras": [
           {
             "numero": "3210",
@@ -2971,7 +2971,7 @@
         ]
       },
       "2025": {
-        "label": "Serie 2025",
+        "label": "2025",
         "obras": [
           {
             "numero": "3380",
@@ -3067,7 +3067,7 @@
         ]
       },
       "2021-20-19": {
-        "label": "Serie 2021-20-19",
+        "label": "2021-20-19",
         "obras": [
           {
             "numero": "3010",
@@ -3142,7 +3142,7 @@
     "label": "Arte Africano",
     "series": {
       "baculos": {
-        "label": "Serie Bastones",
+        "label": "Bastones",
         "obras": [
           {
             "numero": "1001",
@@ -3251,7 +3251,7 @@
         ]
       },
       "mascaras": {
-        "label": "Serie Mascaras",
+        "label": "Mascaras",
         "obras": [
           {
             "numero": "2006",
