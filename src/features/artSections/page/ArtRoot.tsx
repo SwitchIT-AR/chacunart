@@ -5,6 +5,7 @@ import ErrorScreen from '../../../errors/ErrorScreen';
 import classes from './ArtRoot.module.css';
 import { useEffect, useState } from 'react';
 import { Carousel } from '@mantine/carousel';
+import { useBreakpoint } from '../../../utils/utils';
 
 interface Submenu {
   imagePathColor: string;
@@ -22,6 +23,7 @@ export default function ArtRoot() {
   const link = navbarLinksData.filter(
     (link) => link.path === `/${exibitionLabel}`,
   );
+  const breakpoints = useBreakpoint();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' }); // o 'auto' si no querés animación
@@ -39,38 +41,58 @@ export default function ArtRoot() {
 
   if (linkData.isInfoSection && !linkData.isNested) {
     if (linkData.files.length > 1) {
-      return (
-        <Box component="section" p={'md'}>
-          <Box className={classes.infoButtonsContainer}>
-            {linkData.files.map((nestedLink) => (
-              <Box
-                key={nestedLink.path}
-                className={classes.infoButtons}
-                onClick={() =>
-                  setSelectedPdf({
-                    key: nestedLink.label,
-                    path: nestedLink.path,
-                  })
-                }
-              >
-                <Title ta={'center'}>{nestedLink.label}</Title>
-              </Box>
-            ))}
+      if (breakpoints.isMobile) {
+        return (
+          <Box component="section" p={'xl'}>
+            <Box className={classes.infoButtonsContainer}>
+              {linkData.files.map((nestedLink) => (
+                <a
+                  style={{ color: 'black', textDecoration: 'none' }}
+                  href={'/assets/DOCUMENTOS/' + nestedLink.path}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={nestedLink.path}
+                >
+                  <Box className={classes.infoButtons}>{nestedLink.label}</Box>
+                </a>
+              ))}
+            </Box>
           </Box>
-          {selectedPdf ? (
-            <embed
-              src={`/assets/DOCUMENTOS/${selectedPdf.path}`}
-              type="application/pdf"
-              width={'100%'}
-              height={'800px'}
-            />
-          ) : (
-            <Title order={2} ta={'center'} mt={'xl'}>
-              Seleccione una opcion para vizualisar
-            </Title>
-          )}
-        </Box>
-      );
+        );
+      } else {
+        return (
+          <Box component="section" p={'md'}>
+            <Box className={classes.infoButtonsContainer}>
+              {linkData.files.map((nestedLink) => (
+                <Box
+                  key={nestedLink.path}
+                  className={classes.infoButtons}
+                  onClick={() =>
+                    setSelectedPdf({
+                      key: nestedLink.label,
+                      path: nestedLink.path,
+                    })
+                  }
+                >
+                  <Title ta={'center'}>{nestedLink.label}</Title>
+                </Box>
+              ))}
+            </Box>
+            {selectedPdf ? (
+              <embed
+                src={`/assets/DOCUMENTOS/${selectedPdf.path}`}
+                type="application/pdf"
+                width={'100%'}
+                height={'800px'}
+              />
+            ) : (
+              <Title order={2} ta={'center'} mt={'xl'}>
+                Seleccione una opcion para vizualisar
+              </Title>
+            )}
+          </Box>
+        );
+      }
     } else {
       return (
         <Box component="section" p={'md'}>
@@ -108,8 +130,27 @@ export default function ArtRoot() {
       >
         {submenus.map((submenu) => (
           <Carousel.Slide key={submenu.submenuLabel}>
-            <Box component={Link} to={submenu.submenuPath} style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
-              <Text style={{ position: 'absolute', fontSize: '7rem', color: 'white', zIndex: 1, bottom: '50%', fontFamily: 'Roboto' }}>{submenu.submenuLabel}</Text>
+            <Box
+              component={Link}
+              to={submenu.submenuPath}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                position: 'relative',
+              }}
+            >
+              <Text
+                style={{
+                  position: 'absolute',
+                  fontSize: '7rem',
+                  color: 'white',
+                  zIndex: 1,
+                  bottom: '50%',
+                  fontFamily: 'Roboto',
+                }}
+              >
+                {submenu.submenuLabel}
+              </Text>
               <img
                 src={submenu.imagePathColor}
                 alt={submenu.submenuLabel}
