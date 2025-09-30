@@ -29,7 +29,7 @@ export default function Layout({ children }: LayoutProps) {
           </AppShell.Header>
         )
       }
-      <AppShell.Navbar style={{ backgroundColor: 'black' }}>
+      <AppShell.Navbar style={{ backgroundColor: 'white' }}>
         {
           !breakpoint.isMobile && (
           <AppShell.Section>
@@ -44,7 +44,7 @@ export default function Layout({ children }: LayoutProps) {
           <NavbarFooter />
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main bg={'black'}>{children}</AppShell.Main>
+      <AppShell.Main bg={'white'}>{children}</AppShell.Main>
     </AppShell>
   );
 }

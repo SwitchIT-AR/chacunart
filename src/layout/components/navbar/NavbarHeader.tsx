@@ -16,7 +16,7 @@ export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
         display: 'flex',
         justifyContent: breakpoint.isMobile ? 'space-between' : 'center',
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
       }}
     >
       <Box component={Link} to={'/'}>
@@ -24,6 +24,8 @@ export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
           src="/assets/ChristianAcuna-logo.jpg"
           w={breakpoint.isMobile ? 150 : 250}
           fallbackSrc="https://placehold.co/250"
+          style={{ filter: 'invert(1)' }} // 1 = 100% inversión
+
         />
       </Box>
       {breakpoint.isMobile && (
