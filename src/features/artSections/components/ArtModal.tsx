@@ -138,21 +138,25 @@ export default function ArtModal({ obra }: ArtModalProps) {
             position: 'relative',
           }}
         >
-          <Text
-            style={{
-              position: 'absolute',
-              fontSize: '1.5rem',
-              color: 'black',
-              fontWeight: 100,
-              // backgroundColor: 'var(--mantine-color-gray-1)',
-              top: '10px',
-              zIndex: 1,
-              // bottom: '50%',
-              fontFamily: 'Roboto',
-            }}
-          >
-            {obra.nombre}
-          </Text>
+          {/* <Box style={{ backgroundColor: '#FDECDA', }}> */}
+            <Text
+            flex={1}
+            ta={'center'}
+              style={{
+                width: '100%',
+                position: 'absolute',
+                fontSize: '1.5rem',
+                color: 'black',
+                fontWeight: 600,
+                bottom: '0',
+                zIndex: 1,
+                fontFamily: 'Roboto',
+                backgroundColor: 'rgba(253, 236, 218, 0.5)',
+              }}
+            >
+              {obra.nombre}
+            </Text>
+          {/* </Box> */}
           <Image
             className={classes.image}
             src={obraSrc(obra)!}
