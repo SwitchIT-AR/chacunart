@@ -1,3 +1,4 @@
+// theme.ts
 import { createTheme, MantineColorsTuple } from '@mantine/core';
 
 const titles: MantineColorsTuple = [
@@ -13,13 +14,17 @@ const titles: MantineColorsTuple = [
   '#725b38'
 ];
 
-
 export const theme = createTheme({
   colors: {
     titles: titles
   },
-  fontFamily: 'Balthazar, sans-serif',
+  fontFamily: 'Montserrat, sans-serif',
   headings: {
-    fontFamily: 'Balthazar, sans-serif',
+    fontFamily: 'Montserrat, sans-serif',
+  },
+  other: {
+    fontBalthazar: 'Balthazar, serif',
+    fontLato: 'Lato, sans-serif',
+    fontMontserrat: 'Montserrat, sans-serif',
   }
 });

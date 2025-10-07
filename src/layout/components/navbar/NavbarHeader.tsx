@@ -25,11 +25,16 @@ export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
           w={breakpoint.isMobile ? 150 : 250}
           fallbackSrc="https://placehold.co/250"
           style={{ filter: 'invert(1)' }} // 1 = 100% inversión
-
         />
       </Box>
       {breakpoint.isMobile && (
-        <Burger opened={opened} onClick={toggle} style={{}} />
+        <Burger
+          opened={opened}
+          onClick={toggle}
+          styles={{
+            root: { '--burger-color': 'black' },
+          }}
+        />
       )}
     </Box>
   );
