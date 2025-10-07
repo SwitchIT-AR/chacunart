@@ -1,0 +1,72 @@
+.imgContainer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  /* position: relative; */
+}
+
+.absolute {
+  position: absolute;
+
+}
+
+.hide {
+  display: none;
+}
+
+.title {
+  text-align: center;
+  font-size: 86px;
+  font-weight: 900;
+  margin-bottom: var(--mantine-spacing-md);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: var(--mantine-spacing-md);
+}
+
+.description {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: var(--mantine-spacing-md);
+}
+
+/* Mantine breakpoints:
+  - xs: 36em (576px)
+  - sm: 48em (768px)
+  - md: 62em (992px)
+  - lg: 75em (1200px)
+  - xl: 88em (1408px)
+*/
+
+@media (max-width: 48em) { /* sm breakpoint */
+  .title {
+    font-size: 48px;
+  }
+
+  .subtitle {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 36em) { /* xs breakpoint */
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
