@@ -1,6 +1,6 @@
 import { Box, Title } from '@mantine/core';
 import { useParams } from 'react-router';
-import obrasDataJson from '../../../utils/obras_full.json';
+import obrasDataJson from '../../../../public/obras_full.json';
 import ErrorScreen from '../../../errors/ErrorScreen';
 import { ObrasData } from '../../../utils/Global.types';
 import LeadGrid from '../components/LeadGrid';
