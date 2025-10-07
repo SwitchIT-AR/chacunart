@@ -34,11 +34,15 @@ const getImagesUrl = (obraNumber: string) => {
 
 export default function ArtModal({ obra }: ArtModalProps) {
   const [opened, { open, close }] = useDisclosure(false);
+  const location = window.location;
+
   const obraSrc = (o?: Obra) =>
     o ? `/assets/OBRAS/${o.numero}-001.JPEG` : undefined;
 
   const [thumbOk, setThumbOk] = useState(true);
   const imagesUrl = getImagesUrl(obra.numero);
+
+  const isExibition = location.toString().includes('exibitions');
   return (
     <>
       <Modal
@@ -61,34 +65,38 @@ export default function ArtModal({ obra }: ArtModalProps) {
               {obra.descripcion && (
                 <Text className={classes.description}>{obra.descripcion}</Text>
               )}
-              <Text>
-                <Text span className={classes.labelTitles}>
-                  Medidas:{' '}
-                </Text>
-                {obra.medidas ? obra.medidas : 'Sin información'}
-              </Text>
-              <Text>
-                <Text span className={classes.labelTitles}>
-                  Peso:{' '}
-                </Text>
-                {obra.peso ? obra.peso : 'Sin información'}
-              </Text>
-              <Text>
-                <Text span className={classes.labelTitles}>
-                  Técnica:{' '}
-                </Text>
-                {obra.tecnica ? obra.tecnica : 'Sin información'}
-              </Text>
-              <Text>
-                <Text span className={classes.labelTitles}>
-                  Estado:{' '}
-                </Text>
-                {obra.estado
-                  ? ({ C: 'En Galería', V: 'Vendida', D: 'Donada' }[
-                      obra.estado
-                    ] ?? 'Sin información')
-                  : 'Disponible'}{' '}
-              </Text>
+              {!isExibition && (
+                <>
+                  <Text>
+                    <Text span className={classes.labelTitles}>
+                      Medidas:{' '}
+                    </Text>
+                    {obra.medidas ? obra.medidas : 'Sin información'}
+                  </Text>
+                  <Text>
+                    <Text span className={classes.labelTitles}>
+                      Peso:{' '}
+                    </Text>
+                    {obra.peso ? obra.peso : 'Sin información'}
+                  </Text>
+                  <Text>
+                    <Text span className={classes.labelTitles}>
+                      Técnica:{' '}
+                    </Text>
+                    {obra.tecnica ? obra.tecnica : 'Sin información'}
+                  </Text>
+                  <Text>
+                    <Text span className={classes.labelTitles}>
+                      Estado:{' '}
+                    </Text>
+                    {obra.estado
+                      ? ({ C: 'En Galería', V: 'Vendida', D: 'Donada' }[
+                          obra.estado
+                        ] ?? 'Sin información')
+                      : 'Disponible'}{' '}
+                  </Text>
+                </>
+              )}
               {obra.video && (
                 <Button
                   mt={'md'}
@@ -111,7 +119,6 @@ export default function ArtModal({ obra }: ArtModalProps) {
                   <a
                     key={url}
                     href={url}
-                    target="_blank"
                     rel="noreferrer"
                     className={classes.imageContainer}
                   >
@@ -139,23 +146,23 @@ export default function ArtModal({ obra }: ArtModalProps) {
           }}
         >
           {/* <Box style={{ backgroundColor: '#FDECDA', }}> */}
-            <Text
+          <Text
             flex={1}
             ta={'center'}
-              style={{
-                width: '100%',
-                position: 'absolute',
-                fontSize: '1.5rem',
-                color: 'black',
-                fontWeight: 600,
-                bottom: '0',
-                zIndex: 1,
-                fontFamily: 'Roboto',
-                backgroundColor: 'rgba(253, 236, 218, 0.5)',
-              }}
-            >
-              {obra.nombre}
-            </Text>
+            style={{
+              width: '100%',
+              position: 'absolute',
+              fontSize: '1.5rem',
+              color: 'black',
+              fontWeight: 600,
+              bottom: '0',
+              zIndex: 1,
+              fontFamily: 'Roboto',
+              backgroundColor: 'rgba(253, 236, 218, 0.5)',
+            }}
+          >
+            {obra.nombre}
+          </Text>
           {/* </Box> */}
           <Image
             className={classes.image}
