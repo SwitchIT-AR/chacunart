@@ -102,7 +102,7 @@ export default function ArtModal({ obra }: ArtModalProps) {
                   mt={'md'}
                   component="a"
                   variant="light"
-                  color="transparent"
+                  color="red"
                   target="_blank"
                   href={obra.video}
                   leftSection={<IconBrandYoutube />}
