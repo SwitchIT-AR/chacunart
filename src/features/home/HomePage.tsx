@@ -1,9 +1,9 @@
 import { Carousel, CarouselSlide } from '@mantine/carousel';
-import { Box, Container, Text } from '@mantine/core';
+import { Box, Container } from '@mantine/core';
 import Autoplay from 'embla-carousel-autoplay';
 import { useEffect, useRef } from 'react';
 import { useBreakpoint } from '../../utils/utils';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import classes from './Home.module.css';
 
 export default function HomePage() {
@@ -39,7 +39,7 @@ export default function HomePage() {
         emblaOptions={{ duration: 75 }}
         styles={{ control: { display: 'none' } }}
       >
-        <CarouselSlide>
+        {/* <CarouselSlide>
             <Box
               className={clsx(classes.imgContainer)}
               style={{
@@ -115,6 +115,14 @@ export default function HomePage() {
               </Text>
             </Box>
           </Box>
+        </CarouselSlide> */}
+        <CarouselSlide>
+          <Box
+            className={classes.imgContainer}
+            style={{
+              backgroundImage: `url(${getImage('Menu_01C')})`,
+            }}
+          />
         </CarouselSlide>
         <CarouselSlide>
           <Box
