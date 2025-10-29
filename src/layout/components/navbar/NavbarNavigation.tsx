@@ -22,7 +22,7 @@ interface NavbarNavigationProps {
 export default function NavbarNavigation({ toggle }: NavbarNavigationProps) {
 
   return (
-      <Stack ta={'center'}>
+      <Stack ta={'center'} py={'xl'}>
         {
           navbarLinksData.map((navbarLink) => (
             <NavbarLink key={navbarLink.path} data={navbarLink} toggleNavbar={toggle} />
