@@ -11,7 +11,6 @@ export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
   const breakpoint = useBreakpoint();
   return (
     <Box
-      // p={'xl'}
       h={'100%'}
       px={'xl'}
       style={{
@@ -24,7 +23,7 @@ export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
       <Box component={Link} to={'/'}>
         <Image
           src="/assets/ChristianAcuna-logo.jpg"
-          w={breakpoint.isMobile ? 250 : 250}
+          w={breakpoint.isMobile ? 230 : 250}
           fallbackSrc="https://placehold.co/250"
           style={{ filter: 'invert(1)' }} // 1 = 100% inversión
         />
