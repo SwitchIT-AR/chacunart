@@ -5,7 +5,7 @@ export interface NavbarLinkData {
   isNested: boolean;
   isInfoSection: boolean;
   nestedLinks: { label: string; path: string }[];
-  files: { label: string; path: string }[];
+  files: { label: string; path: string, bgImg: string | null }[];
 }
 
 export const navbarLinksData: NavbarLinkData[] = [
@@ -61,9 +61,9 @@ export const navbarLinksData: NavbarLinkData[] = [
     nestedLinks: [
     ],
     files: [
-      { label: 'Portfolio', path: 'Portfolio.pdf' },
-      { label: 'Storytelling', path: 'Storytelling.pdf' },
-      { label: 'Memoria Conceptual', path: 'MemoriaConceptual.pdf' },
+      { label: 'Portfolio', path: 'Portfolio.pdf', bgImg: 'ACERCADE_1.JPEG' },
+      { label: 'Storytelling', path: 'Storytelling.pdf', bgImg: 'ACERCADE_2.JPEG' },
+      { label: 'Memoria Conceptual', path: 'MemoriaConceptual.pdf', bgImg: 'ACERCADE_3.JPEG' },
     ],
   },
   {
@@ -88,7 +88,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     isNested: false,
     isInfoSection: true,
     nestedLinks: [    ],
-    files: [{ label: 'Premios', path: 'Premios.pdf' }],
+    files: [{ label: 'Premios', path: 'Premios.pdf', bgImg: null }],
   },
   {
     label: 'ARTE AFRICANO',
@@ -101,8 +101,8 @@ export const navbarLinksData: NavbarLinkData[] = [
       { label: 'Máscaras', path: 'mascaras' },
     ],
     files: [
-      { label: 'Báculos', path: 'BaculosAfricanos.pdf' },
-      { label: 'Máscaras', path: 'MascarasTribales.pdf' },
+      { label: 'Báculos', path: 'BaculosAfricanos.pdf', bgImg: null },
+      { label: 'Máscaras', path: 'MascarasTribales.pdf', bgImg: null },
     ],
   },
   {

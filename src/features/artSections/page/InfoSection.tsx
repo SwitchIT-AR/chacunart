@@ -1,11 +1,12 @@
 // components/InfoSection.tsx
-import { Box, Title } from '@mantine/core';
+import { Box, Grid, Image, Title } from '@mantine/core';
 import { useState } from 'react';
 import classes from './ArtRoot.module.css';
 
 interface File {
   label: string;
   path: string;
+  bgImg: string | null;
 }
 
 interface InfoSectionProps {
@@ -33,22 +34,41 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
   // Múltiples archivos en mobile - mostrar como links
   if (isMobile) {
     return (
-      <Box component="section" p="xl">
-        <Box className={classes.infoButtonsContainer}>
+      <Box
+        component="section"
+        p="md"
+        style={{ width: '100%', maxWidth: '100%', overflow: 'hidden' }}
+      >
+        <Grid gutter="md" style={{ margin: 0 }}>
           {files.map((file) => (
-            <a
-              key={file.path}
-              href={`/assets/DOCUMENTOS/${file.path}`}
-              target="_blank"
-              rel="noreferrer"
-              style={{ color: 'black', textDecoration: 'none' }}
-            >
-              <Box className={classes.infoButtons}>
-                <Title order={3} ta="center">{file.label}</Title>
-              </Box>
-            </a>
+            <Grid.Col key={file.path} span={12} style={{ padding: '0.5rem' }}>
+              <a
+                href={`/assets/DOCUMENTOS/${file.path}`}
+                style={{
+                  color: 'black',
+                  textDecoration: 'none',
+                  display: 'block',
+                  width: '100%',
+                  maxWidth: '100%',
+                }}
+              >
+                <Box className={classes.infoButtonsMobile}>
+                  {file.bgImg ? (
+                    <Image
+                      src={`/assets/MENU/${file.bgImg}`}
+                      fit="contain"
+                      style={{ maxWidth: '100%', height: 'auto' }}
+                    />
+                  ) : (
+                    <Title order={3} ta="center">
+                      {file.label}
+                    </Title>
+                  )}
+                </Box>
+              </a>
+            </Grid.Col>
           ))}
-        </Box>
+        </Grid>
       </Box>
     );
   }
@@ -63,7 +83,13 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
             className={classes.infoButtons}
             onClick={() => setSelectedPdf(file)}
           >
-            <Title order={3} ta="center">{file.label}</Title>
+            {file.bgImg ? (
+              <Image src={`/assets/MENU/${file.bgImg}`} fit="contain" />
+            ) : (
+              <Title order={3} ta="center">
+                {file.label}
+              </Title>
+            )}
           </Box>
         ))}
       </Box>
