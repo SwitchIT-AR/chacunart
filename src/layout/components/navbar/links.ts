@@ -97,12 +97,12 @@ export const navbarLinksData: NavbarLinkData[] = [
     isNested: true,
     isInfoSection: true,
     nestedLinks: [
-      { label: 'Báculos', path: 'baculos' },
-      { label: 'Máscaras', path: 'mascaras' },
+      { label: 'Baculos', path: 'baculos' },
+      { label: 'Mascaras', path: 'mascaras' },
     ],
     files: [
-      { label: 'Báculos', path: 'BaculosAfricanos.pdf', bgImg: null },
-      { label: 'Máscaras', path: 'MascarasTribales.pdf', bgImg: null },
+      { label: 'Baculos', path: 'BaculosAfricanos.pdf', bgImg: null },
+      { label: 'Mascaras', path: 'MascarasTribales.pdf', bgImg: null },
     ],
   },
   {
