@@ -18,7 +18,7 @@ export const theme = createTheme({
   colors: {
     titles: titles
   },
-  fontFamily: 'Montserrat, sans-serif',
+  fontFamily: "Calibri, Carlito, 'Segoe UI', Arial, sans-serif",
   headings: {
     fontFamily: 'Montserrat, sans-serif',
   },
@@ -28,5 +28,6 @@ export const theme = createTheme({
     fontMontserrat: 'Montserrat, sans-serif',
     fontGaramond: "'EB Garamond', Georgia, serif",
     fontCinzel: "'Cinzel', Georgia, serif",
+    fontCalibri: "Calibri, Carlito, 'Segoe UI', Arial, sans-serif",
   }
 });

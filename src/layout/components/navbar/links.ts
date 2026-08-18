@@ -63,9 +63,9 @@ export const navbarLinksData: NavbarLinkData[] = [
     nestedLinks: [
     ],
     files: [
-      { label: 'Portfolio', path: 'Portfolio.pdf', bgImg: 'ACERCADE_1.JPEG' },
-      { label: 'Storytelling', path: 'Storytelling.pdf', bgImg: 'ACERCADE_2.JPEG' },
-      { label: 'Memoria Conceptual', path: 'MemoriaConceptual.pdf', bgImg: 'ACERCADE_3.JPEG' },
+      { label: 'Portfolio', path: 'Portfolio.pdf', bgImg: null },
+      { label: 'Storytelling', path: 'Storytelling.pdf', bgImg: null },
+      { label: 'Memoria Conceptual', path: 'MemoriaConceptual.pdf', bgImg: null },
     ],
   },
   {

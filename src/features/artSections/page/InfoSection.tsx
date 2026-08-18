@@ -66,7 +66,7 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
                       style={{ maxWidth: '100%', height: 'auto' }}
                     />
                   ) : (
-                    <Title order={3} ta="center">
+                    <Title order={3} ta="center" className={classes.infoButtonTitle}>
                       {file.label}
                     </Title>
                   )}
@@ -93,7 +93,7 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
             {file.bgImg ? (
               <Image src={`/assets/MENU/${file.bgImg}`} fit="contain" />
             ) : (
-              <Title order={3} ta="center">
+              <Title order={3} ta="center" className={classes.infoButtonTitle}>
                 {file.label}
               </Title>
             )}

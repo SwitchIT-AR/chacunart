@@ -49,6 +49,12 @@
   flex-shrink: 0;
 }
 
+.infoButtonTitle {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--mantine-color-titles-2);
+  letter-spacing: 0.08em;
+}
+
 .image {
   max-width: 100%;
   max-height: 100%;
