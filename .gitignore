@@ -25,3 +25,4 @@ dist-ssr
 public/
 public_html/
 public_html.zip
+.claude/settings.local.json

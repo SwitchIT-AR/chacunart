@@ -2,6 +2,8 @@
 import { Box, Grid, Image, Title } from '@mantine/core';
 import { useState } from 'react';
 import classes from './ArtRoot.module.css';
+import DocumentArticle from '../../documents/DocumentArticle';
+import { documentsByPath } from '../../documents/documentsContent';
 
 interface File {
   label: string;
@@ -14,6 +16,21 @@ interface InfoSectionProps {
   isMobile: boolean;
 }
 
+function DocViewer({ file }: { file: File }) {
+  const content = documentsByPath[file.path];
+  if (content) {
+    return <DocumentArticle content={content} />;
+  }
+  return (
+    <embed
+      src={`/assets/DOCUMENTOS/${file.path}`}
+      type="application/pdf"
+      width="100%"
+      height="800px"
+    />
+  );
+}
+
 export default function InfoSection({ files, isMobile }: InfoSectionProps) {
   const [selectedPdf, setSelectedPdf] = useState<File | null>(null);
 
@@ -21,12 +38,7 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
   if (files.length === 1) {
     return (
       <Box component="section" p="md">
-        <embed
-          src={`/assets/DOCUMENTOS/${files[0].path}`}
-          type="application/pdf"
-          width="100%"
-          height="800px"
-        />
+        <DocViewer file={files[0]} />
       </Box>
     );
   }
@@ -42,15 +54,9 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
         <Grid gutter="md" style={{ margin: 0 }}>
           {files.map((file) => (
             <Grid.Col key={file.path} span={12} style={{ padding: '0.5rem' }}>
-              <a
-                href={`/assets/DOCUMENTOS/${file.path}`}
-                style={{
-                  color: 'black',
-                  textDecoration: 'none',
-                  display: 'block',
-                  width: '100%',
-                  maxWidth: '100%',
-                }}
+              <Box
+                onClick={() => setSelectedPdf(file)}
+                style={{ cursor: 'pointer', width: '100%', maxWidth: '100%' }}
               >
                 <Box className={classes.infoButtonsMobile}>
                   {file.bgImg ? (
@@ -65,10 +71,11 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
                     </Title>
                   )}
                 </Box>
-              </a>
+              </Box>
             </Grid.Col>
           ))}
         </Grid>
+        {selectedPdf && <DocViewer file={selectedPdf} />}
       </Box>
     );
   }
@@ -94,12 +101,7 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
         ))}
       </Box>
       {selectedPdf ? (
-        <embed
-          src={`/assets/DOCUMENTOS/${selectedPdf.path}`}
-          type="application/pdf"
-          width="100%"
-          height="800px"
-        />
+        <DocViewer file={selectedPdf} />
       ) : (
         <Title order={2} ta="center" mt="xl">
           Seleccione una opción para visualizar

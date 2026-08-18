@@ -90,6 +90,24 @@
   font-display: swap;
 }
 
+/* ==================== CINZEL ==================== */
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel/Cinzel-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==================== EB GARAMOND ==================== */
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond/EBGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==================== MONTSERRAT ==================== */
 @font-face {
   font-family: 'Montserrat';

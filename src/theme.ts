@@ -26,5 +26,7 @@ export const theme = createTheme({
     fontBalthazar: 'Balthazar, serif',
     fontLato: 'Lato, sans-serif',
     fontMontserrat: 'Montserrat, sans-serif',
+    fontGaramond: "'EB Garamond', Georgia, serif",
+    fontCinzel: "'Cinzel', Georgia, serif",
   }
 });

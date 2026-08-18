@@ -1,0 +1,73 @@
+.page {
+  background-color: black;
+  min-height: 100%;
+}
+
+.title {
+  font-family: 'Cinzel', Georgia, serif;
+  color: var(--mantine-color-titles-2);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.8rem auto 0;
+  width: 45%;
+  max-width: 260px;
+}
+
+.divider .line {
+  flex: 1;
+  height: 1px;
+  background: var(--mantine-color-titles-4);
+}
+
+.divider .diamond {
+  font-size: 0.6rem;
+  line-height: 1;
+  color: var(--mantine-color-titles-3);
+  flex-shrink: 0;
+}
+
+.subtitle {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--mantine-color-titles-1);
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-top: 0.9rem;
+}
+
+.author {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--mantine-color-titles-3);
+  font-size: 1.05rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.body {
+  margin-top: var(--mantine-spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-lg);
+}
+
+.paragraph {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--mantine-color-gray-3);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.image {
+  max-width: 100%;
+  width: auto;
+  margin: 0 auto;
+}

@@ -2,6 +2,7 @@
 import { Box } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import { Link } from 'react-router';
+import clsx from 'clsx';
 import classes from './ArtRoot.module.css';
 import { useBreakpoint } from '../../../utils/utils';
 
@@ -13,6 +14,7 @@ interface NestedLink {
 interface SubmenuCarouselProps {
   nestedLinks: NestedLink[];
   imageKey: string;
+  compact?: boolean;
 }
 
 interface Submenu {
@@ -25,6 +27,7 @@ interface Submenu {
 export default function SubmenuCarousel({
   nestedLinks,
   imageKey,
+  compact = false,
 }: SubmenuCarouselProps) {
   const breakpoints = useBreakpoint();
   const submenus: Submenu[] = nestedLinks.map((submenu) => ({
@@ -36,16 +39,24 @@ export default function SubmenuCarousel({
 
   return (
     <Carousel
-      slideSize={breakpoints.isMobile ? '90%' : '70%'} // 👈 100% en mobile, 33.3% en desktop
-      slideGap={breakpoints.isMobile ? 'sm' : 'sm'} // 👈 Sin gap en mobile
-      height={breakpoints.isMobile ? '87dvh' : '100vh'}
+      slideSize={
+        compact
+          ? breakpoints.isMobile
+            ? '45%'
+            : '18%'
+          : breakpoints.isMobile
+            ? '90%'
+            : '70%'
+      }
+      slideGap={'sm'}
+      height={compact ? (breakpoints.isMobile ? '160px' : '220px') : breakpoints.isMobile ? '87dvh' : '100vh'}
       emblaOptions={{
         loop: true,
-        align: 'center',
+        align: compact ? 'start' : 'center',
       }}
       styles={{
         root: {
-          backgroundColor: 'black', // 👈 Fondo negro como en tu diseño
+          backgroundColor: 'black',
         },
       }}
     >
@@ -54,7 +65,7 @@ export default function SubmenuCarousel({
           <Box
             component={Link}
             to={submenu.submenuPath}
-            className={classes.carouselSlide}
+            className={clsx(classes.carouselSlide, compact && classes.carouselSlideCompact)}
           >
             <img
               src={submenu.imagePathColor}

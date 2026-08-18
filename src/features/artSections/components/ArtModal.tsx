@@ -58,9 +58,17 @@ export default function ArtModal({ obra }: ArtModalProps) {
             </ActionIcon>
           </div>
           <Container>
-            <Title ta={'center'} mb={'md'}>
-              {obra.nombre}
-            </Title>
+            <Box mb={'md'}>
+              <Title className={classes.obraTitle} ta={'center'}>
+                {obra.nombre}
+              </Title>
+              <Box className={classes.obraTitleDivider}>
+                <span className={classes.line} />
+                <span className={classes.diamond}>◆</span>
+                <span className={classes.diamond}>◆</span>
+                <span className={classes.line} />
+              </Box>
+            </Box>
             <Box mb={'md'} className={classes.descriptionContainer}>
               {obra.descripcion && (
                 <Text className={classes.description}>{obra.descripcion}</Text>
@@ -138,32 +146,16 @@ export default function ArtModal({ obra }: ArtModalProps) {
         </Box>
       </Modal>
       {thumbOk && obraSrc(obra) && (
-        <Box
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            position: 'relative',
-          }}
-        >
-          {/* <Box style={{ backgroundColor: '#FDECDA', }}> */}
-          <Text
-            flex={1}
-            ta={'center'}
-            style={{
-              width: '100%',
-              position: 'absolute',
-              fontSize: '1.5rem',
-              color: 'black',
-              fontWeight: 600,
-              bottom: '0',
-              zIndex: 1,
-              fontFamily: 'Roboto',
-              backgroundColor: 'rgba(253, 236, 218, 0.5)',
-            }}
-          >
-            {obra.nombre}
-          </Text>
-          {/* </Box> */}
+        <Box className={classes.card}>
+          <Box className={classes.titleBlock}>
+            <Text className={classes.obraTitle}>{obra.nombre}</Text>
+            <Box className={classes.obraTitleDivider}>
+              <span className={classes.line} />
+              <span className={classes.diamond}>◆</span>
+              <span className={classes.diamond}>◆</span>
+              <span className={classes.line} />
+            </Box>
+          </Box>
           <Image
             className={classes.image}
             src={obraSrc(obra)!}

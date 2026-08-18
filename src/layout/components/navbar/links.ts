@@ -25,6 +25,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     isNested: true,
     isInfoSection: false,
     nestedLinks: [
+      { label: '2026', path: '2026' },
       { label: '2025', path: '2025' },
       { label: '2024', path: '2024' },
       { label: '2023', path: '2023' },
@@ -43,6 +44,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     isNested: true,
     isInfoSection: false,
     nestedLinks: [
+      { label: 'Invisibles', path: 'invisibles' },
       { label: 'Re-Cuadros', path: 'recuadros' },
       { label: 'Juntos', path: 'juntos' },
       { label: 'Familias', path: 'familias' },
@@ -73,6 +75,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     isNested: true,
     isInfoSection: false,
     nestedLinks: [
+      { label: '2026', path: '2026' },
       { label: '2025', path: '2025' },
       { label: '2024', path: '2024' },
       { label: '2023', path: '2023' },

@@ -1,12 +1,12 @@
 .label {
-  color: black;
+  color: var(--mantine-color-titles-1);
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.1px;
 }
 
 .nestedLabel {
-  color: black;
+  color: var(--mantine-color-titles-1);
   font-size: 18px;
   font-weight: 100;
   overflow: hidden;
