@@ -12,6 +12,11 @@
   font-weight: 500;
 }
 
+.titleGaramond {
+  font-family: 'EB Garamond', Georgia, serif;
+  letter-spacing: 0.1em;
+}
+
 .divider {
   display: flex;
   align-items: center;

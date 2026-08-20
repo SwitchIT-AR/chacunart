@@ -42,14 +42,14 @@ export default function SubmenuCarousel({
       slideSize={
         compact
           ? breakpoints.isMobile
-            ? '45%'
+            ? '52%'
             : '18%'
           : breakpoints.isMobile
             ? '90%'
             : '70%'
       }
       slideGap={'sm'}
-      height={compact ? (breakpoints.isMobile ? '160px' : '220px') : breakpoints.isMobile ? '87dvh' : '100vh'}
+      height={compact ? (breakpoints.isMobile ? '210px' : '220px') : breakpoints.isMobile ? '87dvh' : '100vh'}
       emblaOptions={{
         loop: true,
         align: compact ? 'start' : 'center',

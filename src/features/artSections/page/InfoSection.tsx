@@ -51,9 +51,9 @@ export default function InfoSection({ files, isMobile }: InfoSectionProps) {
         p="md"
         style={{ width: '100%', maxWidth: '100%', overflow: 'hidden' }}
       >
-        <Grid gutter="md" style={{ margin: 0 }}>
+        <Grid gutter="xs" style={{ margin: 0 }}>
           {files.map((file) => (
-            <Grid.Col key={file.path} span={12} style={{ padding: '0.5rem' }}>
+            <Grid.Col key={file.path} span={12} style={{ padding: '0.3rem' }}>
               <Box
                 onClick={() => setSelectedPdf(file)}
                 style={{ cursor: 'pointer', width: '100%', maxWidth: '100%' }}

@@ -4,7 +4,7 @@ import { createTheme, MantineColorsTuple } from '@mantine/core';
 const titles: MantineColorsTuple = [
   '#fbf5ec',
   '#eee9e0',
-  '#dbd0c1',
+  '#c9a24d',
   '#c7b69f',
   '#b6a082',
   '#ab936e',

@@ -6,6 +6,7 @@ import { ObrasData } from '../../../utils/Global.types';
 import LeadGrid from '../components/LeadGrid';
 import ArtModal from '../components/ArtModal';
 import { useEffect } from 'react';
+import classes from './ArtRoot.module.css';
 
 export default function ArtSubSectionPage() {
   const { exibitionLabel, exibitionSubLabel } = useParams();
@@ -27,7 +28,7 @@ export default function ArtSubSectionPage() {
 
   return (
     <Box component="section" py={'md'}>
-      <Title ta={'center'} mb={'md'}>
+      <Title className={classes.sectionTitle} mb="md">
         {exibitionData.label}
       </Title>
       <LeadGrid obras={exibitionData.obras} component={ArtModal} />

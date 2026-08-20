@@ -1,7 +1,6 @@
 import {
   ActionIcon,
   Box,
-  Button,
   Container,
   Image,
   Modal,
@@ -53,7 +52,7 @@ export default function ArtModal({ obra }: ArtModalProps) {
       >
         <Box>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <ActionIcon variant="light" size={'md'} onClick={close}>
+            <ActionIcon variant="light" color="yellow" size={'md'} onClick={close}>
               <IconX />
             </ActionIcon>
           </div>
@@ -106,17 +105,15 @@ export default function ArtModal({ obra }: ArtModalProps) {
                 </>
               )}
               {obra.video && (
-                <Button
-                  mt={'md'}
-                  component="a"
-                  variant="light"
-                  color="red"
-                  target="_blank"
+                <a
                   href={obra.video}
-                  leftSection={<IconBrandYoutube />}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={classes.videoButton}
                 >
+                  <IconBrandYoutube size={'1.2rem'} className={classes.videoButtonIcon} />
                   Ver Video
-                </Button>
+                </a>
               )}
             </Box>
             <ResponsiveMasonry

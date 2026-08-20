@@ -1,4 +1,5 @@
 import { Box, Container, Image, Text, Title } from '@mantine/core';
+import clsx from 'clsx';
 import { DocBlock, DocContent } from './documentsContent';
 import classes from './DocumentArticle.module.css';
 
@@ -85,7 +86,10 @@ export default function DocumentArticle({ content }: DocumentArticleProps) {
   return (
     <Box className={classes.page}>
       <Container size="md" py="xl">
-        <Title className={classes.title} ta="center">
+        <Title
+          className={clsx(classes.title, content.titleFont === 'garamond' && classes.titleGaramond)}
+          ta="center"
+        >
           {content.title}
         </Title>
         <Box className={classes.divider}>

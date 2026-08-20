@@ -21,6 +21,8 @@ export interface DocBlock {
 
 export interface DocContent {
   title: string;
+  /** 'garamond' usa EB Garamond en el título en lugar de la tipografía Cinzel por defecto. */
+  titleFont?: 'garamond';
   author?: string;
   subtitle?: string;
   blocks: DocBlock[];
@@ -466,10 +468,163 @@ export const portfolio: DocContent = {
   ],
 };
 
+export const premios: DocContent = {
+  title: 'PREMIOS Y RECONOCIMIENTOS',
+  subtitle: 'Esculturas creadas con material recuperado del Río de la Plata',
+  author: 'Christián Acuña',
+  blocks: [
+    { type: 'paragraph', text: 'Premios' },
+    {
+      type: 'list',
+      items: [
+        '2025 — 1.º Premio Escultura — 90.º Salón de Otoño SAAP, Sociedad Argentina de Artistas Plásticos (Esperanza a la Deriva)',
+        '2025 — Mención — XVI Salón ARTVILO, Artistas Visuales Vicente Lopez, Museo Rómulo Raggio (La Fábrica)',
+        '2024 — 3.º Premio — LXIV Salón de Otoño Ateneo Esteban Echeverría (Mi Arca)',
+        '2023 — 3.º Premio — Concurso ArteNew (Viejo Tren)',
+      ],
+    },
+    { type: 'paragraph', text: 'Selecciones institucionales' },
+    {
+      type: 'list',
+      items: [
+        'Fondo Nacional de las Artes, MAP Museo de Arte Popular (En el Barco)',
+        'Museo de Arte Moderno de Buenos Aires, para la plataforma del Banco de Galicia (Refugiados)',
+      ],
+    },
+    { type: 'paragraph', text: 'Colecciones' },
+    {
+      type: 'list',
+      items: ['Museo Fundación Rómulo Raggio (La colina de la vida) — Colección Permanente'],
+    },
+    {
+      type: 'obraCard',
+      obra: {
+        nombre: 'Esperanza a la Deriva', año: 2024, numero: '0112', serie: 'Lo que el Río no quiso',
+        tecnica: RIO_TECNICA, materiales: RIO_MATERIALES, medidas: '120 x 120 x 25 cm',
+        nota: '1.º Premio Escultura — 90.º Salón de Otoño SAAP, Sociedad Argentina de Artistas Plásticos — 2025.',
+      },
+    },
+    {
+      type: 'obraCard',
+      obra: {
+        nombre: 'La Fábrica', año: 2023, numero: '0100', serie: 'Lo que el Río no quiso',
+        tecnica: RIO_TECNICA, materiales: RIO_MATERIALES, medidas: '68 x 68 x 21 cm',
+        nota: 'Mención Escultura — XVI Salón ARTVILO, Artistas Visuales de Vicente López / Museo Rómulo Raggio — 2025.',
+      },
+    },
+    {
+      type: 'obraCard',
+      obra: {
+        nombre: 'Mi Arca', año: 2023, numero: '0072', serie: 'Lo que el Río no quiso',
+        tecnica: RIO_TECNICA, materiales: 'Maderas y metales recuperados del Río de la Plata.', medidas: '98 x 65 x 19 cm, Peso: 7 kg',
+        nota: '3.er Premio — LXIV Salón de Otoño, Ateneo Popular Esteban Echeverría, San Fernando — 2024.',
+      },
+    },
+    {
+      type: 'obraCard',
+      obra: {
+        nombre: 'Viejo Tren', año: 2023, numero: '0079', serie: 'Lo que el Río no quiso',
+        tecnica: RIO_TECNICA, materiales: RIO_MATERIALES, medidas: '32 x 78 x 15 cm',
+        nota: '3.er Premio — Concurso Arte New, Rotary Club (Villa Luro · Palermo New · Villa Urquiza) — 2023.',
+      },
+    },
+    {
+      type: 'obraCard',
+      obra: {
+        nombre: 'Refugiados', año: 2018, numero: '0001', serie: 'Lo que el Río no quiso',
+        tecnica: RIO_TECNICA, materiales: 'Maderas y metales recuperados del Río de la Plata.', medidas: '48 x 45 x 13 cm, Peso: 2 kg',
+        nota: 'Selección Oficial — Galicia Homebanking, curaduría del Museo de Arte Moderno de Buenos Aires (MAMBA) — 2021.',
+      },
+    },
+    {
+      type: 'obraCard',
+      obra: {
+        nombre: 'En el Barco', año: 2019, numero: '0007', serie: 'Lo que el Río no quiso',
+        tecnica: RIO_TECNICA, materiales: 'Maderas y metales recuperados del Río de la Plata.', medidas: '68 x 49 x 18 cm, Peso: 26 kg',
+        nota: 'Selección Oficial — Fondo Nacional de las Artes, Artesanías Tradicionales y Contemporáneas, exhibida en el Museo de Arte Popular José Hernández (MAP) — 2019.',
+      },
+    },
+  ],
+};
+
+export const loQueElRioNoQuiso: DocContent = {
+  title: 'LO QUE EL RÍO NO QUISO',
+  author: 'Christián Acuña',
+  blocks: [
+    { type: 'paragraph', text: 'Hay objetos que el río no termina de llevarse.' },
+    {
+      type: 'paragraph',
+      text: 'Desde 2018, Christián Acuña recorre las orillas del Río de la Plata recogiendo lo que el agua depositó y abandonó: maderas desgastadas, metales oxidados, fragmentos de objetos cuya historia es irrecuperable. Con ese material construye esculturas que no disimulan su origen, sino que lo exhiben:  la pérdida de color y cada una de las cicatrices, son parte integral de un todo.',
+    },
+    {
+      type: 'paragraph',
+      text: 'En esta serie, Acuña interviene los materiales encontrados para revelar presencias humanas que parecen haber estado siempre ahí, esperando. No las inventa, las reconoce. El encastre y tallado mínimo que agrega —un ojo, una boca, la inclinación de un cuerpo— alcanzan para que lo inerte se vuelva figura, para que el resto se vuelva persona.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Los títulos de las obras, Refugiados, En el Barco, Esperanza a la Deriva, Clamor, no son metáforas decorativas. Nombran condiciones humanas que el río, con su memoria larga y silenciosa, ya conoce.',
+    },
+  ],
+};
+
+export const serieInvisibles: DocContent = {
+  title: 'INVISIBLES',
+  titleFont: 'garamond',
+  author: 'Christián Acuña',
+  blocks: [
+    {
+      type: 'paragraph',
+      text: 'Hay un momento en el trabajo escultórico en que la herramienta deja de ser necesaria.',
+    },
+    {
+      type: 'paragraph',
+      text: 'En la serie Invisibles, Christián Acuña lleva su práctica hasta ese límite: los materiales recuperados de las orillas del Río de la Plata ya no son intervenidos en sus rostros ni en sus cuerpos. No hay talla que construya una nariz, unos ojos o una boca. La figura humana surge exclusivamente de las formas que el agua dejó.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Lo que parece una restricción es, en realidad, una pregunta: ¿cuánta humanidad puede contener la materia sin que el artista la fuerce?',
+    },
+    {
+      type: 'paragraph',
+      text: 'Las piezas conservan una condición deliberadamente ambigua: presencia y ausencia, figura y ruina, cuerpo y resto. Acuña no las completa; las organiza y las pone en relación. El ensamblaje es el único gesto que se permite: decidir quién está junto a quién, qué mira hacia dónde y qué permanece en sombra.',
+    },
+    {
+      type: 'paragraph',
+      text: 'En un río que guarda memorias que la historia oficial tardó décadas en nombrar, esa decisión de no intervenir adquiere un significado que trasciende lo formal.',
+    },
+  ],
+};
+
+export const serieRecuadros: DocContent = {
+  title: 'SERIE RE-CUADROS',
+  titleFont: 'garamond',
+  author: 'Christián Acuña',
+  blocks: [
+    { type: 'paragraph', text: 'Un marco sin cuadro es una pregunta sin respuesta.' },
+    {
+      type: 'paragraph',
+      text: 'En esta serie, Christián Acuña interviene marcos antiguos de origen familiar — objetos que alguna vez contuvieron imágenes domésticas, retratos, presencias — introduciéndoles materiales recuperados de las orillas del Río de la Plata. Lo que emerge no es una pintura ni una escultura convencional: es algo intermedio, un objeto que pertenece a dos tiempos y a dos memorias simultáneamente.',
+    },
+    {
+      type: 'paragraph',
+      text: 'La memoria íntima está en el marco: su moldura dorada, su madera trabajada, el desgaste particular de quien lo colgó y lo descolgó durante décadas. La memoria colectiva está en lo que el río devolvió: fragmentos anónimos, sin dueño identificable, transformados por el agua y el tiempo.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Al reunirlos, Acuña no resuelve la tensión entre ambos — la sostiene. El marco que alguna vez contuvo un rostro conocido ahora alberga figuras que nadie puede nombrar.',
+    },
+    { type: 'paragraph', text: 'La pregunta sobre quiénes son permanece abierta.' },
+  ],
+};
+
 export const documentsByPath: Record<string, DocContent> = {
   'Storytelling.pdf': storytelling,
   'MemoriaConceptual.pdf': memoriaConceptual,
   'BaculosAfricanos.pdf': baculosAfricanos,
   'MascarasTribales.pdf': mascarasTribales,
   'Portfolio.pdf': portfolio,
+  'Premios.pdf': premios,
+  'LoQueElRioNoQuiso.pdf': loQueElRioNoQuiso,
+  'SerieInvisibles.pdf': serieInvisibles,
+  'SerieRecuadros.pdf': serieRecuadros,
 };

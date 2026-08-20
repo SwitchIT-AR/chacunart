@@ -4,6 +4,8 @@ export interface NavbarLinkData {
   imageKey: string;
   isNested: boolean;
   isInfoSection: boolean;
+  /** Fuerza el carrusel compacto (arriba, chico) aunque la sección no tenga texto/archivos debajo. */
+  compactCarousel?: boolean;
   nestedLinks: { label: string; path: string }[];
   files: { label: string; path: string, bgImg: string | null }[];
 }
@@ -35,7 +37,7 @@ export const navbarLinksData: NavbarLinkData[] = [
       { label: '2019', path: '2019' },
       { label: '2018', path: '2018' },
     ],
-    files: [],
+    files: [{ label: 'Lo que el Río no quiso', path: 'LoQueElRioNoQuiso.pdf', bgImg: null }],
   },
   {
     label: 'OBRAS SERIE',
@@ -52,7 +54,10 @@ export const navbarLinksData: NavbarLinkData[] = [
       { label: 'Amigos', path: 'amigos' },
       { label: 'Alegria', path: 'alegria' },
     ],
-    files: [],
+    files: [
+      { label: 'Invisibles', path: 'SerieInvisibles.pdf', bgImg: null },
+      { label: 'Re-Cuadros', path: 'SerieRecuadros.pdf', bgImg: null },
+    ],
   },
   {
     label: 'ACERCA DE',
@@ -74,6 +79,7 @@ export const navbarLinksData: NavbarLinkData[] = [
     imageKey: 'Exhibiciones',
     isNested: true,
     isInfoSection: false,
+    compactCarousel: true,
     nestedLinks: [
       { label: '2026', path: '2026' },
       { label: '2025', path: '2025' },

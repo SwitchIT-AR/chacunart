@@ -5,6 +5,7 @@ import NavbarNavigation from './navbar/NavbarNavigation';
 import NavbarFooter from './NavbarFooter';
 import { useDisclosure } from '@mantine/hooks';
 import { useBreakpoint } from '../../utils/utils';
+import { NavbarContext } from './NavbarContext';
 
 interface LayoutProps {
   children: ReactNode;
@@ -14,37 +15,39 @@ export default function Layout({ children }: LayoutProps) {
   const [opened, { toggle }] = useDisclosure();
   const breakpoint = useBreakpoint();
   return (
-    <AppShell
-      navbar={{
-        breakpoint: 'sm',
-        width: '320px',
-        collapsed: { mobile: !opened },
-      }}
-      header={{ height: breakpoint.isMobile ? '13dvh' : 0 }}
-    >
-      {
-        breakpoint.isMobile && (
-          <AppShell.Header>
-            <NavbarHeader opened={opened} toggle={toggle} />
-          </AppShell.Header>
-        )
-      }
-      <AppShell.Navbar style={{ backgroundColor: 'black' }}>
+    <NavbarContext.Provider value={{ opened, toggle }}>
+      <AppShell
+        navbar={{
+          breakpoint: 'sm',
+          width: '320px',
+          collapsed: { mobile: !opened },
+        }}
+        header={{ height: breakpoint.isMobile ? '13dvh' : 0 }}
+      >
         {
-          !breakpoint.isMobile && (
-          <AppShell.Section>
-            <NavbarHeader opened={opened} toggle={toggle} />
-          </AppShell.Section>
+          breakpoint.isMobile && (
+            <AppShell.Header>
+              <NavbarHeader opened={opened} toggle={toggle} />
+            </AppShell.Header>
           )
         }
-        <AppShell.Section grow component={ScrollArea}>
-          <NavbarNavigation toggle={toggle} />
-        </AppShell.Section>
-        <AppShell.Section>
-          <NavbarFooter />
-        </AppShell.Section>
-      </AppShell.Navbar>
-      <AppShell.Main bg={'black'}>{children}</AppShell.Main>
-    </AppShell>
+        <AppShell.Navbar style={{ backgroundColor: 'black' }}>
+          {
+            !breakpoint.isMobile && (
+            <AppShell.Section>
+              <NavbarHeader opened={opened} toggle={toggle} />
+            </AppShell.Section>
+            )
+          }
+          <AppShell.Section grow component={ScrollArea}>
+            <NavbarNavigation toggle={toggle} />
+          </AppShell.Section>
+          <AppShell.Section>
+            <NavbarFooter />
+          </AppShell.Section>
+        </AppShell.Navbar>
+        <AppShell.Main bg={'black'}>{children}</AppShell.Main>
+      </AppShell>
+    </NavbarContext.Provider>
   );
 }

@@ -35,11 +35,12 @@ export default function ArtRoot() {
   }
 
   const hasArticles = link.files.length > 0;
+  const compact = hasArticles || link.compactCarousel === true;
 
   // Sección con submenús (carousel)
   return (
     <Box component="section">
-      {hasArticles && (
+      {compact && (
         <>
           <Title className={classes.sectionTitle}>{link.label}</Title>
           <Box className={classes.sectionDivider}>
@@ -53,7 +54,7 @@ export default function ArtRoot() {
       <SubmenuCarousel
         nestedLinks={link.nestedLinks}
         imageKey={link.imageKey}
-        compact={hasArticles}
+        compact={compact}
       />
       {hasArticles && <PdfViewer files={link.files} />}
     </Box>

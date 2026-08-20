@@ -15,15 +15,19 @@ export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
       px={'xl'}
       style={{
         display: 'flex',
-        justifyContent: breakpoint.isMobile ? 'space-between' : 'center',
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'black',
+        overflow: 'hidden',
+        position: 'relative',
       }}
     >
-      <Box component={Link} to={'/'}>
+      <Box component={Link} to={'/'} h={breakpoint.isMobile ? '80%' : 'auto'}>
         <Image
           src="/assets/ChristianAcuna-logo.jpg"
-          w={breakpoint.isMobile ? 230 : 250}
+          h={breakpoint.isMobile ? '100%' : undefined}
+          w={breakpoint.isMobile ? 'auto' : 300}
+          fit="contain"
           fallbackSrc="https://placehold.co/250"
         />
       </Box>
@@ -32,7 +36,13 @@ export default function NavbarHeader({ toggle, opened }: NavbarHeaderProps) {
           opened={opened}
           onClick={toggle}
           styles={{
-            root: { '--burger-color': 'white' },
+            root: {
+              '--burger-color': 'white',
+              position: 'absolute',
+              right: 'var(--mantine-spacing-xl)',
+              top: '50%',
+              transform: 'translateY(-50%)',
+            },
           }}
         />
       )}

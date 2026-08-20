@@ -7,6 +7,9 @@
   flex-direction: column;
   align-items: center;
   background-color: black;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--mantine-color-dark-4);
 }
 
 .titleBlock {
@@ -75,4 +78,38 @@
 
 .hoverZoom:hover {
   transform: scale(1.1);
+}
+
+.videoButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: var(--mantine-spacing-md);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--mantine-color-titles-4);
+  background: linear-gradient(180deg, rgba(201, 162, 77, 0.14), rgba(201, 162, 77, 0.03));
+  color: var(--mantine-color-titles-2);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.videoButtonIcon {
+  color: #e0302f;
+  transition: color 0.25s ease;
+}
+
+.videoButton:hover {
+  background: var(--mantine-color-titles-2);
+  color: black;
+  border-color: var(--mantine-color-titles-2);
+  box-shadow: 0 4px 16px rgba(201, 162, 77, 0.35);
+  transform: translateY(-2px);
+}
+
+.videoButton:hover .videoButtonIcon {
+  color: black;
 }

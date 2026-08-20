@@ -1,0 +1,35 @@
+.title {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: var(--mantine-spacing-xl) 0;
+  padding-top: var(--mantine-spacing-lg);
+  border-top: 1px solid var(--mantine-color-dark-4);
+}
+
+.infoLine {
+  font-family: Calibri, Carlito, 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+  color: var(--mantine-color-gray-3);
+  letter-spacing: 0.02em;
+}
+
+.infoLabel {
+  font-weight: 700;
+  color: var(--mantine-color-titles-2);
+}
+
+.infoValue {
+  color: var(--mantine-color-gray-3);
+  text-decoration: none;
+}
+
+.infoValue:hover {
+  color: var(--mantine-color-titles-2);
+  text-decoration: underline;
+}

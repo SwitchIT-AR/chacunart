@@ -3,6 +3,11 @@
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.1px;
+  transition: color 0.2s ease;
+}
+
+.label:hover {
+  color: var(--mantine-color-titles-2);
 }
 
 .nestedLabel {
@@ -11,9 +16,10 @@
   font-weight: 100;
   overflow: hidden;
   margin-bottom: 5px;
-  /* transition: font-weight 0.2s ease; */
+  transition: color 0.2s ease;
 }
 
 .nestedLabel:hover {
+  color: var(--mantine-color-titles-2);
   text-decoration: underline;
 }
